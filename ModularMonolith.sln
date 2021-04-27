@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith", "ModularMonolith\ModularMonolith.csproj", "{7C414900-0BA9-446F-99B2-D94E076CF709}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{067D6708-33A0-4B33-B453-D6C0BD117EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{DAC28A84-411C-4D7D-B42D-5E0E8F296EE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "History", "History", "{D8618460-396F-4C2A-A1A6-C63A7C5CB8FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Product.Infrastructure", "ModularMonolith.Product.Infrastructure\ModularMonolith.Product.Infrastructure.csproj", "{2C407010-37DD-46CE-A3E2-289BB7CE1FE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Product.Application", "ModularMonolith.Product.Application\ModularMonolith.Product.Application.csproj", "{4578390D-59FE-4843-A91F-39B6292B49C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Product.Domain", "ModularMonolith.Product.Domain\ModularMonolith.Product.Domain.csproj", "{0D3BCC7C-F413-495E-9ADE-A1C0824DBFE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.History.Infrastructure", "ModularMonolith.History.Infrastructure\ModularMonolith.History.Infrastructure.csproj", "{1777E616-2277-4631-9B42-4BB1902F0B45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.History.Domain", "ModularMonolith.History.Domain\ModularMonolith.History.Domain.csproj", "{3584E9CE-85FA-4FE8-8564-AAE0BD84597E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.History.Application", "ModularMonolith.History.Application\ModularMonolith.History.Application.csproj", "{906E9E02-A03F-4784-AA16-16A333767F8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Contracts", "ModularMonolith.Contracts\ModularMonolith.Contracts.csproj", "{72EE1401-CD71-4A58-96E0-4DBAB808D40F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C414900-0BA9-446F-99B2-D94E076CF709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C414900-0BA9-446F-99B2-D94E076CF709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C414900-0BA9-446F-99B2-D94E076CF709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C414900-0BA9-446F-99B2-D94E076CF709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C407010-37DD-46CE-A3E2-289BB7CE1FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C407010-37DD-46CE-A3E2-289BB7CE1FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C407010-37DD-46CE-A3E2-289BB7CE1FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C407010-37DD-46CE-A3E2-289BB7CE1FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4578390D-59FE-4843-A91F-39B6292B49C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4578390D-59FE-4843-A91F-39B6292B49C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4578390D-59FE-4843-A91F-39B6292B49C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4578390D-59FE-4843-A91F-39B6292B49C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D3BCC7C-F413-495E-9ADE-A1C0824DBFE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3BCC7C-F413-495E-9ADE-A1C0824DBFE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3BCC7C-F413-495E-9ADE-A1C0824DBFE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3BCC7C-F413-495E-9ADE-A1C0824DBFE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1777E616-2277-4631-9B42-4BB1902F0B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1777E616-2277-4631-9B42-4BB1902F0B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1777E616-2277-4631-9B42-4BB1902F0B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1777E616-2277-4631-9B42-4BB1902F0B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3584E9CE-85FA-4FE8-8564-AAE0BD84597E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3584E9CE-85FA-4FE8-8564-AAE0BD84597E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3584E9CE-85FA-4FE8-8564-AAE0BD84597E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3584E9CE-85FA-4FE8-8564-AAE0BD84597E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906E9E02-A03F-4784-AA16-16A333767F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906E9E02-A03F-4784-AA16-16A333767F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906E9E02-A03F-4784-AA16-16A333767F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906E9E02-A03F-4784-AA16-16A333767F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72EE1401-CD71-4A58-96E0-4DBAB808D40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72EE1401-CD71-4A58-96E0-4DBAB808D40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72EE1401-CD71-4A58-96E0-4DBAB808D40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72EE1401-CD71-4A58-96E0-4DBAB808D40F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DAC28A84-411C-4D7D-B42D-5E0E8F296EE3} = {067D6708-33A0-4B33-B453-D6C0BD117EDB}
+		{D8618460-396F-4C2A-A1A6-C63A7C5CB8FF} = {067D6708-33A0-4B33-B453-D6C0BD117EDB}
+		{2C407010-37DD-46CE-A3E2-289BB7CE1FE9} = {DAC28A84-411C-4D7D-B42D-5E0E8F296EE3}
+		{4578390D-59FE-4843-A91F-39B6292B49C8} = {DAC28A84-411C-4D7D-B42D-5E0E8F296EE3}
+		{0D3BCC7C-F413-495E-9ADE-A1C0824DBFE8} = {DAC28A84-411C-4D7D-B42D-5E0E8F296EE3}
+		{1777E616-2277-4631-9B42-4BB1902F0B45} = {D8618460-396F-4C2A-A1A6-C63A7C5CB8FF}
+		{3584E9CE-85FA-4FE8-8564-AAE0BD84597E} = {D8618460-396F-4C2A-A1A6-C63A7C5CB8FF}
+		{906E9E02-A03F-4784-AA16-16A333767F8A} = {D8618460-396F-4C2A-A1A6-C63A7C5CB8FF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47C26823-5420-4BFB-AEC7-6F282D8CD15D}
+	EndGlobalSection
+EndGlobal
