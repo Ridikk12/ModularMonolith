@@ -7,13 +7,15 @@ namespace ModularMonolith.Contracts
 {
     public class ProductCratedEvent : INotification
     {
-        public ProductCratedEvent(string name, string description, string createdBy, DateTime createdOn)
+        public ProductCratedEvent(Guid id, string name, string description, string createdBy, DateTime createdOn)
         {
             Name = name;
             Description = description;
             CreatedBy = createdBy;
             CreatedOn = createdOn;
+            Id = id;
         }
+        public Guid Id { get; }
         public string Name { get; }
         public string Description { get; }
         public string CreatedBy { get; }

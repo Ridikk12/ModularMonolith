@@ -5,8 +5,9 @@ using MediatR;
 
 namespace ModularMonolith.Product.Application.Commands
 {
-    class AddProductCommand : IRequest
+    public class AddProductCommand : IRequest<Guid>
     {
+
         public string Name { get; set; }
         public string Description { get; set; }
     }

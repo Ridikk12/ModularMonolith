@@ -5,21 +5,29 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using ModularMonolith.Contracts;
+using ModularMonolith.Product.Domain;
 
 namespace ModularMonolith.Product.Application.Commands
 {
-    class AddProductCommandHandler : IRequestHandler<AddProductCommand>
+    class AddProductCommandHandler : IRequestHandler<AddProductCommand, Guid>
     {
         private readonly IMediator _mediator;
+        private readonly IProductRepository _productRepository;
 
-
-        public AddProductCommandHandler(IMediator mediator)
+        public AddProductCommandHandler(IMediator mediator, IProductRepository productRepository)
         {
             _mediator = mediator;
+            _productRepository = productRepository;
         }
-        public async Task<Unit> Handle(AddProductCommand request, CancellationToken cancellationToken)
+
+        public async Task<Guid> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
-            await _mediator.Publish(new ProductCratedEvent(request.Name, request.Description, "", DateTime.UtcNow), CancellationToken.None);
+            var product = Domain.Product.New(request.Name, request.Description);
+
+            await _productRepository.Add(product);
+
+            await _mediator.Publish(new ProductCratedEvent(product.Id, request.Name, request.Description, "", DateTime.UtcNow), CancellationToken.None);
+            return product.Id;
         }
     }
 }

@@ -7,18 +7,28 @@ namespace ModularMonolith.History.Domain
 {
     public class EntityHistory
     {
-        public string EntityName { get; set; }
-        public Guid EntityId { get; set; }
-        public EventType EventType { get; set; }
-        public string RaisedBy { get; set; }
-        public DateTime RaisedOn { get; set; }
+        private EntityHistory()
+        {
 
-    }
+        }
+        private EntityHistory(string entityName, Guid entityId, EventType eventType, string raisedBy, DateTime raisedOn)
+        {
+            EntityName = entityName;
+            EntityId = entityId;
+            EventType = eventType;
+            RaisedBy = raisedBy;
+            RaisedOn = raisedOn;
+        }
+        public Guid Id { get; private set; }
+        public string EntityName { get; private set; }
+        public Guid EntityId { get; private set; }
+        public EventType EventType { get; private set; }
+        public string RaisedBy { get; private set; }
+        public DateTime RaisedOn { get; private set; }
 
-    public enum EventType
-    {
-        Create,
-        Update,
-        Delete
+        public static EntityHistory Create(Guid entityId, string entityName, EventType eventType, string raisedBy, DateTime raisedOn) =>
+            new EntityHistory(entityName, entityId, eventType, raisedBy, raisedOn);
+
+
     }
 }
