@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Commands\**" />
+		<EmbeddedResource Remove="Commands\**" />
+		<Compile Include="Commands\AddProductCommand.cs" />
+		<Compile Include="Commands\AddProductCommandHandler.cs" />
+		<Folder Include="Queries\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MediatR" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
+		<ProjectReference Include="..\ModularMonolith.Product.Domain\ModularMonolith.Product.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

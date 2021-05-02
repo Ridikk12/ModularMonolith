@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using ModularMonolith.History.Application;
+using ModularMonolith.History.Application.Queries;
 
 namespace ModularMonolith.Controllers
 {

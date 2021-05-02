@@ -8,8 +8,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.3" />
@@ -20,9 +20,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\ModularMonolith.History.Application\ModularMonolith.History.Application.csproj" />
-		<ProjectReference Include="..\ModularMonolith.History.Infrastructure\ModularMonolith.History.Infrastructure.csproj" />
-		<ProjectReference Include="..\ModularMonolith.Product.Infrastructure\ModularMonolith.Product.Infrastructure.csproj" />
+		<ProjectReference Include="..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
+		<ProjectReference Include="..\Modules\History\ModularMonolith.History.Infrastructure\ModularMonolith.History.Infrastructure.csproj" />
+		<ProjectReference Include="..\Modules\Product\ModularMonolith.Product.Infrastructure\ModularMonolith.Product.Infrastructure.csproj" />
 	</ItemGroup>
 
 
