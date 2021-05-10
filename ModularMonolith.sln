@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.History.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.History.Infrastructure", "Modules\History\ModularMonolith.History.Infrastructure\ModularMonolith.History.Infrastructure.csproj", "{F1795254-3740-4F91-A8E0-D255435FC1F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Outbox.WorkerProcess", "ModularMonolith.Outbox\ModularMonolith.Outbox.WorkerProcess.csproj", "{031D7DA5-AED0-4416-BF64-A7EC9902EB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Outbox", "ModularMonolith.Core\ModularMonolith.Outbox.csproj", "{894AD613-A4BD-46FF-8C15-D087DA6A4626}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{F1795254-3740-4F91-A8E0-D255435FC1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1795254-3740-4F91-A8E0-D255435FC1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1795254-3740-4F91-A8E0-D255435FC1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031D7DA5-AED0-4416-BF64-A7EC9902EB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031D7DA5-AED0-4416-BF64-A7EC9902EB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031D7DA5-AED0-4416-BF64-A7EC9902EB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031D7DA5-AED0-4416-BF64-A7EC9902EB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{894AD613-A4BD-46FF-8C15-D087DA6A4626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{894AD613-A4BD-46FF-8C15-D087DA6A4626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{894AD613-A4BD-46FF-8C15-D087DA6A4626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{894AD613-A4BD-46FF-8C15-D087DA6A4626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

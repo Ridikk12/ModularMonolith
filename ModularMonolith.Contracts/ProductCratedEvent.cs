@@ -5,7 +5,7 @@ using MediatR;
 
 namespace ModularMonolith.Contracts
 {
-    public class ProductCratedEvent : INotification
+    public class ProductCratedEvent : INotification, IIntegrationEvent
     {
         public ProductCratedEvent(Guid id, string name, string description, string createdBy, DateTime createdOn)
         {
@@ -20,5 +20,10 @@ namespace ModularMonolith.Contracts
         public string Description { get; }
         public string CreatedBy { get; }
         public DateTime CreatedOn { get; }
+    }
+
+    public interface IIntegrationEvent
+    {
+
     }
 }
