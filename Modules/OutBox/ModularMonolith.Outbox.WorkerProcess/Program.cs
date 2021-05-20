@@ -1,11 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ModularMonolith.Outbox
+namespace ModularMonolith.Outbox.WorkerProcess
 {
     public class Program
     {
@@ -18,7 +14,7 @@ namespace ModularMonolith.Outbox
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddHostedService<Worker>();
+                    services.AddHostedService<OutBoxWorker>();
                 });
     }
 }

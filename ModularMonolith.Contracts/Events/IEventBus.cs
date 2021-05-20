@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
-using ModularMonolith.Contracts;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace ModularMonolith.Outbox
+namespace ModularMonolith.Contracts.Events
 {
     public interface IEventBus
     {
         public Task Publish(IIntegrationEvent @event);
+        Task PublishMany(IEnumerable<IIntegrationEvent> @events);
     }
 }

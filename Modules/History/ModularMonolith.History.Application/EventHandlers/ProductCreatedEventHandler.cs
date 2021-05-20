@@ -13,7 +13,7 @@ using ModularMonolith.History.Domain.Interfaces;
 
 namespace ModularMonolith.History.Application.EventHandlers
 {
-    public class ProductCreatedEventHandler : INotificationHandler<ProductCratedEvent>
+    public class ProductCreatedEventHandler : INotificationHandler<ProductCratedIntegrationEvent>
     {
         private readonly IHistoryEntityRepository _repository;
 
@@ -21,7 +21,7 @@ namespace ModularMonolith.History.Application.EventHandlers
         {
             _repository = repository;
         }
-        public async Task Handle(ProductCratedEvent notification, CancellationToken cancellationToken)
+        public async Task Handle(ProductCratedIntegrationEvent notification, CancellationToken cancellationToken)
         {
             var history = EntityHistory.Create(notification.Id, notification.Name, EventType.Create,
                 notification.CreatedBy, notification.CreatedOn);
