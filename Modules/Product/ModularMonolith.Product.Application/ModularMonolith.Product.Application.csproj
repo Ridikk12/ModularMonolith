@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.Infrastructure\ModularMonolith.Infrastructure.csproj" />
 		<ProjectReference Include="..\ModularMonolith.Product.Domain\ModularMonolith.Product.Domain.csproj" />
 	</ItemGroup>
 

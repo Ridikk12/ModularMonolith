@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using ModularMonolith.Contracts;
-using ModularMonolith.History.Domain;
 using ModularMonolith.History.Domain.Entities;
 using ModularMonolith.History.Domain.Enums;
 using ModularMonolith.History.Domain.Interfaces;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ModularMonolith.History.Application.EventHandlers
 {

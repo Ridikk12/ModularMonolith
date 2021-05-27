@@ -10,8 +10,8 @@ using ModularMonolith.Outbox.Persistence;
 namespace ModularMonolith.Outbox.Migrations
 {
     [DbContext(typeof(OutboxDbContext))]
-    [Migration("20210519161012_Init")]
-    partial class Init
+    [Migration("20210527113057_InitOutboxModule")]
+    partial class InitOutboxModule
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace ModularMonolith.Outbox.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ModularMonolith.Outbox.Entities.OutBoxMessage", b =>
+            modelBuilder.Entity("ModularMonolith.Outbox.Entities.OutBoxMessageEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,9 +33,6 @@ namespace ModularMonolith.Outbox.Migrations
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SavedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("SavedOn")
                         .HasColumnType("datetime2");
 
@@ -44,7 +41,7 @@ namespace ModularMonolith.Outbox.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OutBoxMessages");
+                    b.ToTable("OutBoxMessages", "out");
                 });
 #pragma warning restore 612, 618
         }

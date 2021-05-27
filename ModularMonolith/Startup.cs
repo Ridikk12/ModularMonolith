@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
-using ModularMonolith.Contracts.Events;
 using ModularMonolith.History.Infrastructure.Startup;
-using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
 using ModularMonolith.Product.Infrastructure.Startup;
+using ModularMonolith.Providers;
 
 namespace ModularMonolith
 {
@@ -30,9 +30,12 @@ namespace ModularMonolith
 
             services.AddProductModule();
             services.AddHistoryModule();
+            services.AddHttpContextAccessor();
             services.AddOutBoxModule();
+            services.AddScoped<IDbContextProvider, DbContextProvider>();
 
-            services.AddScoped<IEventBus, InMemoryEventBus>();
+            services.AddInMemoryEventBus();
+
             services.AddHostedService<OutBoxWorker>();
 
             services.AddSwaggerGen();

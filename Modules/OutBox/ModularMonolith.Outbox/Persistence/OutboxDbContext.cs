@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ModularMonolith.Outbox.Entities;
 
 namespace ModularMonolith.Outbox.Persistence
@@ -13,6 +10,10 @@ namespace ModularMonolith.Outbox.Persistence
         {
             optionsBuilder.UseSqlServer(
                 @"Server=.\;Database=ModularMonolith;Integrated Security=True");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(OutBoxMessage).Assembly);
         }
     }
 }

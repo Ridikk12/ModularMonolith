@@ -27,13 +27,11 @@ namespace ModularMonolith.Outbox.WorkerProcess
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-
             while (!stoppingToken.IsCancellationRequested)
             {
                 using var scope = _serviceProvider.CreateScope();
 
                 var services = GetServices(scope);
-
                 var messages = await services.dbContext.OutBoxMessages.Where(x => x.ExecutedOn == null)
                     .ToListAsync(stoppingToken);
 

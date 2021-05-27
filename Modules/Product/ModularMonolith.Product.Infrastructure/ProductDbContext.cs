@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using ModularMonolith.Product.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using ModularMonolith.Outbox.Persistence;
 using ModularMonolith.Product.Infrastructure.EntitiesConfigurations;
 
 namespace ModularMonolith.Product.Infrastructure
 {
-    public class ProductDbContext : DbContext
+    public class ProductDbContext : OutboxDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,6 +15,7 @@ namespace ModularMonolith.Product.Infrastructure
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfiguration).Assembly);
             modelBuilder.HasDefaultSchema("pr");
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Domain.Entities.Product> Products { get; set; }

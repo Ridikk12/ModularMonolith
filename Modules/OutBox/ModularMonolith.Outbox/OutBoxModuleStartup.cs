@@ -1,12 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ModularMonolith.Outbox.Persistence;
 
-public static class OutBoxModuleStartup
+namespace ModularMonolith.Outbox
 {
-    public static IServiceCollection AddOutBoxModule(
-        this IServiceCollection services)
+    public static class OutBoxModuleStartup
     {
-        services.AddDbContext<OutboxDbContext>();
-        return services;
+        public static IServiceCollection AddOutBoxModule(
+            this IServiceCollection services)
+        {
+            services.AddDbContext<OutboxDbContext>();
+            return services;
+        }
     }
 }

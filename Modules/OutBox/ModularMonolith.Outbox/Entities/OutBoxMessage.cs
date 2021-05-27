@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace ModularMonolith.Outbox.Entities
 {
     public class OutBoxMessage
     {
-
-        private OutBoxMessage()
+        protected OutBoxMessage()
         {
 
         }
@@ -17,13 +16,19 @@ namespace ModularMonolith.Outbox.Entities
         public DateTime? ExecutedOn { get; set; }
         public string Type { get; private set; }
 
-        public static OutBoxMessage New(string message, string type) => new OutBoxMessage
+        public static OutBoxMessage New(object message)
         {
-            SavedOn = DateTime.UtcNow,
-            Id = Guid.NewGuid(),
-            Message = message,
-            Type = type
-        };
+            var serializedMessage = JsonConvert.SerializeObject(message);
+            var type = message.GetType().ToString();
+
+            return new OutBoxMessage
+            {
+                Message = serializedMessage,
+                Type = type,
+                SavedOn = DateTime.UtcNow,
+                Id = Guid.NewGuid()
+            };
+        }
     }
 
 }
