@@ -7,9 +7,9 @@ using Microsoft.Extensions.Hosting;
 using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
 using ModularMonolith.History.Infrastructure.Startup;
+using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
 using ModularMonolith.Product.Infrastructure.Startup;
-using ModularMonolith.Providers;
 
 namespace ModularMonolith
 {
@@ -32,8 +32,6 @@ namespace ModularMonolith
             services.AddHistoryModule();
             services.AddHttpContextAccessor();
             services.AddOutBoxModule();
-            services.AddScoped<IDbContextProvider, DbContextProvider>();
-
             services.AddInMemoryEventBus();
 
             services.AddHostedService<OutBoxWorker>();

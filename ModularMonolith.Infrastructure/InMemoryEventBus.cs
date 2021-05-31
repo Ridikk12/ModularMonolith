@@ -4,13 +4,14 @@ using ModularMonolith.Outbox.Entities;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ModularMonolith.Outbox.Persistence;
 
 namespace ModularMonolith.Infrastructure
 {
-    public class InMemoryEventBus : IEventBus
+    public abstract class InMemoryEventBus : IEventBus
     {
-        private readonly DbContext _dbContext;
-        public InMemoryEventBus(DbContext dbContext)
+        private readonly OutboxDbContext _dbContext;
+        public InMemoryEventBus(OutboxDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -22,7 +23,7 @@ namespace ModularMonolith.Infrastructure
         private async Task PersistIntegrationEvent(IIntegrationEvent @event)
         {
             var outBoxMessage = OutBoxMessage.New(@event);
-            await _dbContext.Set<OutBoxMessage>().AddAsync(outBoxMessage);
+            await _dbContext.OutBoxMessages.AddAsync(outBoxMessage);
         }
         public async Task PublishMany(IEnumerable<IIntegrationEvent> @events)
 

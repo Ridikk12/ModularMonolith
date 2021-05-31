@@ -28,7 +28,7 @@ namespace ModularMonolith.Product.Infrastructure
             return _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
 
-        public Task Commit()
+        public Task CommitAsync()
         {
             return _dbContext.SaveChangesAsync();
         }
