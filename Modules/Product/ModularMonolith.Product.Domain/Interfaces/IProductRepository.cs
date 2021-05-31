@@ -8,5 +8,6 @@ namespace ModularMonolith.Product.Domain.Interfaces
     {
         Task Add(Entities.Product product);
         Task<Entities.Product> Get(Guid id, CancellationToken cancellationToken);
+        Task CommitAsync();
     }
 }

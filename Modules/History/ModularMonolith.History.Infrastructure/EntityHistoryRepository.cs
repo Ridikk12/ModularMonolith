@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
-using ModularMonolith.History.Domain;
+﻿using Microsoft.EntityFrameworkCore;
 using ModularMonolith.History.Domain.Entities;
 using ModularMonolith.History.Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ModularMonolith.History.Infrastructure
 {
@@ -28,7 +25,11 @@ namespace ModularMonolith.History.Infrastructure
         public async Task Add(EntityHistory history)
         {
             await _dbContext.EntityHistories.AddAsync(history);
-            await _dbContext.SaveChangesAsync();
+        }
+
+        public Task<int> CommitAsync()
+        {
+            return _dbContext.SaveChangesAsync();
         }
     }
 }

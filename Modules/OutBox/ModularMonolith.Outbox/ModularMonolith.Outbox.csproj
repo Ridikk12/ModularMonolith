@@ -5,12 +5,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MediatR" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
-		<ProjectReference Include="..\ModularMonolith.History.Domain\ModularMonolith.History.Domain.csproj" />
 	</ItemGroup>
 
-		</Project>
+	<ItemGroup>
+		<Folder Include="Migrations\" />
+	</ItemGroup>
+
+</Project>

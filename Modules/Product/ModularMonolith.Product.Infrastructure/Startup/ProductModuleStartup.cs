@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using ModularMonolith.Product.Application.Commands;
-using ModularMonolith.Product.Domain;
+using ModularMonolith.Product.Application.EventBus;
 using ModularMonolith.Product.Domain.Interfaces;
 
 namespace ModularMonolith.Product.Infrastructure.Startup
@@ -17,6 +14,8 @@ namespace ModularMonolith.Product.Infrastructure.Startup
             services.AddMediatR(typeof(AddProductCommand));
             services.AddDbContext<ProductDbContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductEventBus, ProductEventBus>();
+
             return services;
         }
     }

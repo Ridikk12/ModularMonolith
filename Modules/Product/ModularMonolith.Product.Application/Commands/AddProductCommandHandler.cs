@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediatR;
+using ModularMonolith.Contracts;
+using ModularMonolith.Contracts.Events;
+using ModularMonolith.Product.Domain.Interfaces;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
-using ModularMonolith.Contracts;
-using ModularMonolith.Product.Domain;
-using ModularMonolith.Product.Domain.Interfaces;
+using ModularMonolith.Product.Application.EventBus;
 
 namespace ModularMonolith.Product.Application.Commands
 {
-    class AddProductCommandHandler : IRequestHandler<AddProductCommand, Guid>
+    public class AddProductCommandHandler : IRequestHandler<AddProductCommand, Guid>
     {
-        private readonly IMediator _mediator;
+        private readonly IProductEventBus _eventBus;
         private readonly IProductRepository _productRepository;
-
-        public AddProductCommandHandler(IMediator mediator, IProductRepository productRepository)
+        public AddProductCommandHandler(IProductEventBus eventBus, IProductRepository productRepository)
         {
-            _mediator = mediator;
+            _eventBus = eventBus;
             _productRepository = productRepository;
         }
 
@@ -27,7 +25,10 @@ namespace ModularMonolith.Product.Application.Commands
 
             await _productRepository.Add(product);
 
-            await _mediator.Publish(new ProductCratedEvent(product.Id, request.Name, request.Description, "", DateTime.UtcNow), CancellationToken.None);
+            await _eventBus.Publish(new ProductCratedIntegrationEvent(product.Id, request.Name, request.Description, "", DateTime.UtcNow));
+
+            await _productRepository.CommitAsync();
+
             return product.Id;
         }
     }

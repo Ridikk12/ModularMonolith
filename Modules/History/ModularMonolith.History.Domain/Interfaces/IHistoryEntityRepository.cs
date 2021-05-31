@@ -10,5 +10,6 @@ namespace ModularMonolith.History.Domain.Interfaces
     {
         Task<List<EntityHistory>> Get(Guid productId, CancellationToken cancellationToken);
         Task Add(EntityHistory history);
+        Task<int> CommitAsync();
     }
 }

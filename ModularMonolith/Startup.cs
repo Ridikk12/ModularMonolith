@@ -4,8 +4,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
 using ModularMonolith.History.Infrastructure.Startup;
+using ModularMonolith.Outbox;
+using ModularMonolith.Outbox.WorkerProcess;
 using ModularMonolith.Product.Infrastructure.Startup;
 
 namespace ModularMonolith
@@ -23,9 +26,15 @@ namespace ModularMonolith
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddMediatR(typeof(ProductCratedEvent));
+            services.AddMediatR(typeof(ProductCratedIntegrationEvent));
+
             services.AddProductModule();
             services.AddHistoryModule();
+            services.AddHttpContextAccessor();
+            services.AddOutBoxModule();
+            services.AddInMemoryEventBus();
+
+            services.AddHostedService<OutBoxWorker>();
 
             services.AddSwaggerGen();
 
@@ -34,8 +43,7 @@ namespace ModularMonolith
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
 
@@ -45,8 +53,7 @@ namespace ModularMonolith
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
+            app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Modular Monolith API");
             });
 
@@ -54,8 +61,7 @@ namespace ModularMonolith
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
+            app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
         }
