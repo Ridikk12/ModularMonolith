@@ -5,9 +5,12 @@ The step by step approach to modular-monolith architecture style.
 # Part1 MVP:
 ![Screenshot](docs/architecture.png)
 
+
 # Part2 OutBox:
 ![Screenshot](docs/architecture_outbox.png)
 
 
 # Articles:
-https://ridikk12.medium.com/easy-modular-monolith-part-1-mvp-d57f47935e24
+Part1 - https://ridikk12.medium.com/easy-modular-monolith-part-1-mvp-d57f47935e24
+Part2 - https://ridikk12.medium.com/easy-modular-monolith-part-2-the-outbox-pattern-b4566724fb68
+
