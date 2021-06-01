@@ -12,5 +12,6 @@ The step by step approach to modular-monolith architecture style.
 
 # Articles:
 Part1 - https://ridikk12.medium.com/easy-modular-monolith-part-1-mvp-d57f47935e24
+
 Part2 - https://ridikk12.medium.com/easy-modular-monolith-part-2-the-outbox-pattern-b4566724fb68
 
