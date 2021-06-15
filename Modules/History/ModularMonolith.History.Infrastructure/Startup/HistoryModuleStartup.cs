@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using ModularMonolith.History.Application;
 using ModularMonolith.History.Application.EventBus;
 using ModularMonolith.History.Application.Queries;
-using ModularMonolith.History.Domain;
 using ModularMonolith.History.Domain.Interfaces;
 
 namespace ModularMonolith.History.Infrastructure.Startup

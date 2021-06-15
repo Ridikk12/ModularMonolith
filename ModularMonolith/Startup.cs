@@ -7,8 +7,10 @@ using Microsoft.Extensions.Hosting;
 using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
 using ModularMonolith.History.Infrastructure.Startup;
+using ModularMonolith.Infrastructure.Exceptions;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
+using ModularMonolith.Product.Infrastructure;
 using ModularMonolith.Product.Infrastructure.Startup;
 
 namespace ModularMonolith
@@ -58,8 +60,9 @@ namespace ModularMonolith
             });
 
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseMiddleware<ExceptionLoggingMiddleware>();
+
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();

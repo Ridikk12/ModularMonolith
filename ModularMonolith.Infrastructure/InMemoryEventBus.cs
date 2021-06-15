@@ -1,14 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ModularMonolith.Contracts.Events;
+﻿using ModularMonolith.Contracts.Events;
 using ModularMonolith.Outbox.Entities;
+using ModularMonolith.Outbox.Persistence;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using ModularMonolith.Outbox.Persistence;
 
 namespace ModularMonolith.Infrastructure
 {
-    public abstract class InMemoryEventBus : IEventBus
+    public class InMemoryEventBus : IEventBus
     {
         private readonly OutboxDbContext _dbContext;
         public InMemoryEventBus(OutboxDbContext dbContext)

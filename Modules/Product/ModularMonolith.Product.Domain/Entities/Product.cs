@@ -1,4 +1,5 @@
 ﻿using System;
+using ModularMonolith.Product.Domain.Exceptions;
 
 namespace ModularMonolith.Product.Domain.Entities
 {
@@ -19,7 +20,7 @@ namespace ModularMonolith.Product.Domain.Entities
         public static Product New(string name, string description)
         {
             if (string.IsNullOrEmpty(name))
-                throw new ArgumentException("Name can't be empty");
+                throw new NameRequiredException();
 
             if (string.IsNullOrEmpty(description))
                 throw new ArgumentException("Description can't be empty");
