@@ -61,7 +61,7 @@ namespace ModularMonolith.Infrastructure.Exceptions
             => ex switch
             {
                 DomainException _ => LogEventLevel.Information,
-                AppException _ => LogEventLevel.Error,
+                AppException _ => LogEventLevel.Information,
                 _ => LogEventLevel.Error
             };
     }
