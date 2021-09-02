@@ -22,9 +22,6 @@ namespace ModularMonolith.Product.Domain.Entities
             if (string.IsNullOrEmpty(name))
                 throw new NameRequiredException();
 
-            if (string.IsNullOrEmpty(description))
-                throw new ArgumentException("Description can't be empty");
-
             return new Product(name, description);
         }
     }

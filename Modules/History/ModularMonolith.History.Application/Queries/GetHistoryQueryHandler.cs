@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using MediatR;
 using ModularMonolith.History.Application.Responses;
 using ModularMonolith.History.Domain.Interfaces;
+using Serilog;
+using Serilog.Core;
 
 namespace ModularMonolith.History.Application.Queries
 {
@@ -19,6 +21,7 @@ namespace ModularMonolith.History.Application.Queries
         public async Task<List<GetHistoryQueryResponse>> Handle(GetHistoryQuery request, CancellationToken cancellationToken)
         {
             var history = await _historyEntityRepository.Get(request.EntityId, cancellationToken);
+
             return history.Select(x => new GetHistoryQueryResponse(x.EntityName, x.RaisedOn, x.EventType.ToString()))
                 .ToList();
         }

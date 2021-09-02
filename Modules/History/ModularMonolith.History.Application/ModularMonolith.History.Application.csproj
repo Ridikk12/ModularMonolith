@@ -6,6 +6,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="MediatR" Version="9.0.0" />
+		<PackageReference Include="Serilog" Version="2.10.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -13,4 +14,4 @@
 		<ProjectReference Include="..\ModularMonolith.History.Domain\ModularMonolith.History.Domain.csproj" />
 	</ItemGroup>
 
-		</Project>
+</Project>

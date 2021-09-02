@@ -10,7 +10,6 @@ using ModularMonolith.History.Infrastructure.Startup;
 using ModularMonolith.Infrastructure.Exceptions;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
-using ModularMonolith.Product.Infrastructure;
 using ModularMonolith.Product.Infrastructure.Startup;
 
 namespace ModularMonolith

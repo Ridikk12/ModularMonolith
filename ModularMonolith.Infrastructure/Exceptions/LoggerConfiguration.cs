@@ -27,6 +27,8 @@ namespace ModularMonolith.Infrastructure.Exceptions
                if (enableConsole)
                    configuration.WriteTo.Console();
 
+               configuration.WriteTo.Seq("http://localhost:5341/", apiKey: "YouAPIKEY");
+
                configuration.Enrich.FromLogContext();
 
                var loggingLevelSwitch = new LoggingLevelSwitch { MinimumLevel = logLevel };
