@@ -13,6 +13,8 @@ namespace ModularMonolith.Infrastructure.Exceptions
            {
                bool.TryParse(context.Configuration["Logger:EnableConsole"], out var enableConsole);
                bool.TryParse(context.Configuration["Logger:EnableFile"], out var enableFile);
+               bool.TryParse(context.Configuration["Logger:Seq:Enable"], out var enableSeq);
+
                Enum.TryParse<LogEventLevel>(context.Configuration["Logger:LogLevel"], out var logLevel);
 
                if (enableFile)
@@ -27,7 +29,12 @@ namespace ModularMonolith.Infrastructure.Exceptions
                if (enableConsole)
                    configuration.WriteTo.Console();
 
-               configuration.WriteTo.Seq("http://localhost:5341/", apiKey: "YouAPIKEY");
+               if (enableSeq)
+               {
+                   var apiKey = context.Configuration["Logger:Seq:ApiKey"];
+                   var seqUrl = context.Configuration["Logger:Seq:URL"];
+                   configuration.WriteTo.Seq(seqUrl, apiKey: apiKey);
+               }
 
                configuration.Enrich.FromLogContext();
 
