@@ -28,7 +28,6 @@ namespace ModularMonolith.Product.Application.Commands
             await _eventBus.Publish(new ProductCratedIntegrationEvent(product.Id, request.Name, request.Description, "", DateTime.UtcNow));
 
             await _productRepository.CommitAsync();
-
             return product.Id;
         }
     }

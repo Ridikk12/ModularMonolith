@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ModularMonolith.Product.Application.Commands;
+using ModularMonolith.Product.Application.Queries;
 
 namespace ModularMonolith.Controllers
 {
@@ -24,5 +22,9 @@ namespace ModularMonolith.Controllers
         [HttpPost]
         public async Task<ActionResult> Products(AddProductCommand request, CancellationToken token) =>
             Ok(await _mediator.Send(request, token));
+
+        [HttpGet]
+        public async Task<ActionResult> Products(Guid id, CancellationToken token) =>
+            Ok(await _mediator.Send(new GetProductQuery(id), token));
     }
 }

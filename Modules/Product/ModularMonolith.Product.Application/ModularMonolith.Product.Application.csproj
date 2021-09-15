@@ -9,7 +9,6 @@
 		<EmbeddedResource Remove="Commands\**" />
 		<Compile Include="Commands\AddProductCommand.cs" />
 		<Compile Include="Commands\AddProductCommandHandler.cs" />
-		<Folder Include="Queries\" />
 	</ItemGroup>
 
 	<ItemGroup>
