@@ -13,8 +13,6 @@ steps:
   inputs:
       command: 'restore'
       projects: "**/**.sln"
-      feedsToUse: "select"
-      vstsFeed: "8f20c074-44e3-4c84-b3bf-6697c3a1a3f1"
       workingDirectory: "$(System.DefaultWorkingDirectory)"
 - task: DotNetCoreCLI@2
   inputs:
