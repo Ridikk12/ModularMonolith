@@ -19,7 +19,7 @@ steps:
     command: 'build'
     projects: "**/**.sln"
     arguments: '--configuration $(buildConfiguration)'
-  displayName: 'dotnet build $(buildConfiguration)'
+  displayName: 'Build'
 - task: DotNetCoreCLI@2
   displayName: Run Tests
   inputs:
@@ -28,12 +28,13 @@ steps:
       publishTestResults: true
       arguments: '--logger trx /p:CollectCoverage=true "/p:CoverletOutputFormat=\"cobertura,opencover\"" /p:Exclude="[*Tests]*"'
 - task: PublishCodeCoverageResults@1  
-  displayName: 'Publish code coverage'  
+  displayName: 'Publish Code Coverage'  
   inputs:  
       codeCoverageTool: Cobertura  
       summaryFileLocation: '**/*coverage.cobertura.xml'
       additionalCodeCoverageFiles:   
 - task: DotNetCoreCLI@2
+  displayName: 'Publish Application'  
   inputs:
     command: publish
     publishWebProjects: True
