@@ -8,10 +8,29 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-
+- task: DotNetCoreCLI@2
+  displayName: Restore Nuget Packages
+  inputs:
+      command: 'restore'
+      projects: "**/**.sln"
+      feedsToUse: "select"
+      vstsFeed: "8f20c074-44e3-4c84-b3bf-6697c3a1a3f1"
+      workingDirectory: "$(System.DefaultWorkingDirectory)"
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: ModularMonolith/ModularMonolith.csproj
+    projects: "**/**.sln"
     arguments: '--configuration $(buildConfiguration)'
   displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: Run Tests
+  inputs:
+      command: 'test'
+      projects:  "**/**.sln"
+      publishTestResults: true
+      arguments: '--logger trx /p:CollectCoverage=true "/p:CoverletOutputFormat=\"cobertura,opencover\"" /p:Exclude="[*Tests]*"'
+- task: PublishCodeCoverageResults@1  
+  displayName: 'Publish code coverage'  
+  inputs:  
+      codeCoverageTool: Cobertura  
+      summaryFileLocation: '**/*coverage.cobertura.xml'
