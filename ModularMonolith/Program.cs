@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 using ModularMonolith.Infrastructure.Exceptions;
+using LoggerConfiguration = Serilog.LoggerConfiguration;
 
 namespace ModularMonolith
 {
@@ -11,12 +12,18 @@ namespace ModularMonolith
     {
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
+
             try {
                 Log.Information("Starting web host");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex) {
                 Log.Fatal(ex, "Host terminated unexpectedly");
+                throw;
             }
             finally {
                 Log.CloseAndFlush();

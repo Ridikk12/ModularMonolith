@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MediatR;
+﻿using MediatR;
 
-namespace ModularMonolith.User.Application
+namespace ModularMonolith.User.Application.Commands.Register
 {
     public class RegisterUserCommand : IRequest
     {

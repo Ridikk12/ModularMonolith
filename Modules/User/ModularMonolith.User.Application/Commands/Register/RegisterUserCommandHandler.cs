@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ModularMonolith.User.Application
+namespace ModularMonolith.User.Application.Commands.Register
 {
     public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand>
     {

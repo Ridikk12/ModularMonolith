@@ -11,6 +11,7 @@ using ModularMonolith.Infrastructure.Exceptions;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
 using ModularMonolith.Product.Infrastructure.Startup;
+using ModularMonolith.User.Infrastructure.Startup;
 
 namespace ModularMonolith
 {
@@ -34,6 +35,8 @@ namespace ModularMonolith
             services.AddHttpContextAccessor();
             services.AddOutBoxModule();
             services.AddInMemoryEventBus();
+
+            services.AddUserModule(Configuration);
 
             services.AddHostedService<OutBoxWorker>();
 
@@ -59,6 +62,7 @@ namespace ModularMonolith
             });
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseMiddleware<ExceptionLoggingMiddleware>();
 

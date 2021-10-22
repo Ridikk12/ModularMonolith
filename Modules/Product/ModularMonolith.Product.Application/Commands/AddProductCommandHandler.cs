@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using ModularMonolith.Contracts;
-using ModularMonolith.Contracts.Events;
+using ModularMonolith.Product.Application.EventBus;
 using ModularMonolith.Product.Domain.Interfaces;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ModularMonolith.Product.Application.EventBus;
 
 namespace ModularMonolith.Product.Application.Commands
 {
