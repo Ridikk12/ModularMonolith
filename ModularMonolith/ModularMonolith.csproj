@@ -21,11 +21,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\ModularMonolith.User.Infrastructure\ModularMonolith.User.Infrastructure.csproj" />
 		<ProjectReference Include="..\Modules\History\ModularMonolith.History.Infrastructure\ModularMonolith.History.Infrastructure.csproj" />
 		<ProjectReference Include="..\Modules\OutBox\ModularMonolith.Outbox.WorkerProcess\ModularMonolith.Outbox.WorkerProcess.csproj" />
 		<ProjectReference Include="..\Modules\OutBox\ModularMonolith.Outbox\ModularMonolith.Outbox.csproj" />
 		<ProjectReference Include="..\Modules\Product\ModularMonolith.Product.Infrastructure\ModularMonolith.Product.Infrastructure.csproj" />
 	</ItemGroup>
 
-		
+
 </Project>
