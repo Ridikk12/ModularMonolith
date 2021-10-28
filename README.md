@@ -15,3 +15,7 @@ Part1 - https://ridikk12.medium.com/easy-modular-monolith-part-1-mvp-d57f47935e2
 
 Part2 - https://ridikk12.medium.com/easy-modular-monolith-part-2-the-outbox-pattern-b4566724fb68
 
+Part3 - https://ridikk12.medium.com/easy-modular-monolith-part-3-logging-57caceac1ff5
+
+Part4 - https://ridikk12.medium.com/easy-modular-monolith-part-4-global-exception-handling-8355cc4905d4
+
