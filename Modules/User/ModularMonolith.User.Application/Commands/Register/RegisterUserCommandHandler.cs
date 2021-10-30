@@ -1,7 +1,10 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using ModularMonolith.User.Application.Exceptions;
 
 namespace ModularMonolith.User.Application.Commands.Register
 {
@@ -15,8 +18,12 @@ namespace ModularMonolith.User.Application.Commands.Register
         }
         public async Task<Unit> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            await _userManager.CreateAsync(new IdentityUser(request.UserName), request.Password);
+            var identity = await _userManager.CreateAsync(new IdentityUser(request.UserName), request.Password);
+            if (!identity.Succeeded)
+                throw new RegisterException(identity.Errors);
+
             return Unit.Value;
         }
     }
+
 }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 using ModularMonolith.Infrastructure.Exceptions;
+using ModularMonolith.User.Application.Exceptions;
 using LoggerConfiguration = Serilog.LoggerConfiguration;
 
 namespace ModularMonolith

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ModularMonolith.Exceptions.Abstraction
 {
@@ -9,6 +10,14 @@ namespace ModularMonolith.Exceptions.Abstraction
         protected AppException(string message, int exceptionCode) : base(message)
         {
             ExceptionCode = exceptionCode;
+        }
+    }
+
+    public abstract class ValidationException : AppException
+    {
+        public List<string> ValidationMessages { get; set; }
+        protected ValidationException(string message, int exceptionCode) : base(message, exceptionCode)
+        {
         }
     }
 

@@ -1,15 +1,16 @@
 ﻿using MediatR;
+using ModularMonolith.User.Application.Queries.Login;
 
 namespace ModularMonolith.User.Application.Commands.Login
 {
-    public class LoginCommand : IRequest<string>
+    public class LoginQuery : IRequest<LoginResponse>
     {
-        public LoginCommand(string userName, string password)
+        public LoginQuery(string userName, string password)
         {
             UserName = userName;
             Password = password;
         }
         public string UserName { get; }
-        public string  Password { get; }
+        public string Password { get; }
     }
 }

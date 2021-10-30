@@ -20,6 +20,7 @@ namespace ModularMonolith.User.Infrastructure.Startup
             services.AddDbContext<UserDbContext>();
             services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<UserDbContext>();
+
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
@@ -46,15 +47,16 @@ namespace ModularMonolith.User.Infrastructure.Startup
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(jwt => {
+            }).AddJwtBearer(jwt =>
+            {
                 var key = Encoding.ASCII.GetBytes(configuration["Jwt:Secret"]);
 
                 jwt.SaveToken = true;
                 jwt.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuerSigningKey = true, 
-                    IssuerSigningKey = new SymmetricSecurityKey(key), 
-                    ValidateIssuer = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
                     ValidateAudience = false,
                     RequireExpirationTime = false,
                     ValidateLifetime = true
