@@ -2,12 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModularMonolith.History.Application.Queries;
 
 namespace ModularMonolith.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class HistoryController : ControllerBase
     {

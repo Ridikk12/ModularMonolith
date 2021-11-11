@@ -50,14 +50,14 @@ namespace ModularMonolith.User.Infrastructure.Startup
             }).AddJwtBearer(jwt =>
             {
                 var key = Encoding.ASCII.GetBytes(configuration["Jwt:Secret"]);
-
+                jwt.Audience = configuration["Jwt:Issuer"];
                 jwt.SaveToken = true;
                 jwt.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
                     RequireExpirationTime = false,
                     ValidateLifetime = true
                 };
