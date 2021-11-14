@@ -19,3 +19,5 @@ Part3 - https://ridikk12.medium.com/easy-modular-monolith-part-3-logging-57cacea
 
 Part4 - https://ridikk12.medium.com/easy-modular-monolith-part-4-global-exception-handling-8355cc4905d4
 
+Part5 - https://itnext.io/easy-modular-monolith-part-5-jwt-authentication-authorization-f7a0a275226f
+
