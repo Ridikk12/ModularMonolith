@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ModularMonolith.Contracts.Events;
+﻿using ModularMonolith.Contracts.Events;
 
 namespace ModularMonolith.Product.Application.EventBus
 {

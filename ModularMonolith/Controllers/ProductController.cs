@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModularMonolith.Product.Application.Commands;
 using ModularMonolith.Product.Application.Queries;
@@ -9,6 +10,7 @@ using ModularMonolith.Product.Application.Queries;
 namespace ModularMonolith.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class ProductController : ControllerBase
     {

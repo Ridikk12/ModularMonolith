@@ -33,7 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Outbox.Work
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Infrastructure", "ModularMonolith.Infrastructure\ModularMonolith.Infrastructure.csproj", "{FA87441A-328E-4B1E-99F2-6B4CDA1FCF35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Exceptions.Abstraction", "ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj", "{89A320E0-A1C0-4081-864E-BC121290363C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Exceptions.Abstraction", "ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj", "{89A320E0-A1C0-4081-864E-BC121290363C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{CA6EE366-C910-40EA-95FC-C043CED28594}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.User.Application", "Modules\User\ModularMonolith.User.Application\ModularMonolith.User.Application.csproj", "{E95897FA-9475-4760-BA52-E97B1DE17549}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.User.Infrastructure", "Modules\User\ModularMonolith.User.Infrastructure\ModularMonolith.User.Infrastructure.csproj", "{86DD25CB-455E-441C-913C-89A635090116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +95,14 @@ Global
 		{89A320E0-A1C0-4081-864E-BC121290363C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89A320E0-A1C0-4081-864E-BC121290363C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89A320E0-A1C0-4081-864E-BC121290363C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95897FA-9475-4760-BA52-E97B1DE17549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95897FA-9475-4760-BA52-E97B1DE17549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95897FA-9475-4760-BA52-E97B1DE17549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95897FA-9475-4760-BA52-E97B1DE17549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DD25CB-455E-441C-913C-89A635090116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DD25CB-455E-441C-913C-89A635090116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DD25CB-455E-441C-913C-89A635090116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DD25CB-455E-441C-913C-89A635090116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +119,9 @@ Global
 		{A2BC0D3C-A79B-4D15-925B-F3CBB67D756B} = {067D6708-33A0-4B33-B453-D6C0BD117EDB}
 		{56CA0105-DC14-4F27-AF07-A1B0EA4CB04B} = {A2BC0D3C-A79B-4D15-925B-F3CBB67D756B}
 		{0E555697-9166-42EA-93D8-63DCD6A824A6} = {A2BC0D3C-A79B-4D15-925B-F3CBB67D756B}
+		{CA6EE366-C910-40EA-95FC-C043CED28594} = {067D6708-33A0-4B33-B453-D6C0BD117EDB}
+		{E95897FA-9475-4760-BA52-E97B1DE17549} = {CA6EE366-C910-40EA-95FC-C043CED28594}
+		{86DD25CB-455E-441C-913C-89A635090116} = {CA6EE366-C910-40EA-95FC-C043CED28594}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {47C26823-5420-4BFB-AEC7-6F282D8CD15D}

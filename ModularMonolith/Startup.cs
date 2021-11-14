@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
 using ModularMonolith.History.Infrastructure.Startup;
@@ -11,6 +12,7 @@ using ModularMonolith.Infrastructure.Exceptions;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
 using ModularMonolith.Product.Infrastructure.Startup;
+using ModularMonolith.User.Infrastructure.Startup;
 
 namespace ModularMonolith
 {
@@ -26,7 +28,9 @@ namespace ModularMonolith
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
+            services.AddRouting(x => x.LowercaseUrls = true);
             services.AddMediatR(typeof(ProductCratedIntegrationEvent));
 
             services.AddProductModule();
@@ -35,10 +39,32 @@ namespace ModularMonolith
             services.AddOutBoxModule();
             services.AddInMemoryEventBus();
 
+            services.AddUserModule(Configuration);
+
             services.AddHostedService<OutBoxWorker>();
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c => {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme() {
+                    Name = "Bearer",
+                    BearerFormat = "JWT",
+                    Scheme = "bearer",
+                    Description = "Specify the authorization token.",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                });
 
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,9 +85,10 @@ namespace ModularMonolith
             });
 
             app.UseRouting();
+
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseMiddleware<ExceptionLoggingMiddleware>();
-
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();

@@ -25,7 +25,8 @@
 		<ProjectReference Include="..\Modules\OutBox\ModularMonolith.Outbox.WorkerProcess\ModularMonolith.Outbox.WorkerProcess.csproj" />
 		<ProjectReference Include="..\Modules\OutBox\ModularMonolith.Outbox\ModularMonolith.Outbox.csproj" />
 		<ProjectReference Include="..\Modules\Product\ModularMonolith.Product.Infrastructure\ModularMonolith.Product.Infrastructure.csproj" />
+		<ProjectReference Include="..\Modules\User\ModularMonolith.User.Infrastructure\ModularMonolith.User.Infrastructure.csproj" />
 	</ItemGroup>
 
-		
+
 </Project>

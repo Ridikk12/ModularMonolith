@@ -43,6 +43,8 @@ namespace ModularMonolith.Infrastructure.Exceptions
             {
                 DomainException domainException => JsonConvert.SerializeObject(
                     new ErrorMessage(domainException.ExceptionCode, domainException.Message)),
+                ValidationException validationException => JsonConvert.SerializeObject(new ValidationErrorMessage(validationException.ExceptionCode, validationException.Message,
+                    validationException.ValidationMessages)),
                 AppException appException => JsonConvert.SerializeObject(new ErrorMessage(appException.ExceptionCode,
                     appException.Message)),
                 _ => JsonConvert.SerializeObject(new ErrorMessage(-1, ex.Message)),
