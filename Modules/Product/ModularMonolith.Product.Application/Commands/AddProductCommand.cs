@@ -7,8 +7,12 @@ namespace ModularMonolith.Product.Application.Commands
 {
     public class AddProductCommand : IRequest<Guid>
     {
-
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public AddProductCommand(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
+        public string Name { get; }
+        public string Description { get; }
     }
 }

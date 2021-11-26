@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using ModularMonolith.User.Application;
 using ModularMonolith.User.Application.Commands.Register;
+using ModularMonolith.User.Contracts;
+using ModularMonolith.User.Infrastructure.Entities;
+using Refit;
 
 namespace ModularMonolith.User.Infrastructure.Startup
 {
@@ -18,8 +22,18 @@ namespace ModularMonolith.User.Infrastructure.Startup
         {
             services.AddMediatR(typeof(RegisterUserCommand));
             services.AddDbContext<UserDbContext>();
-            services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentityCore<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<UserDbContext>();
+
+            services
+                .AddRefitClient<IUserApi>()
+                .ConfigureHttpClient(c =>
+                {
+                    var userModuleUrl = configuration["Modules:UserModule:Url"];
+                    c.BaseAddress = new Uri(userModuleUrl);
+                });
+
+            services.AddScoped<IUserService, UserService>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -36,7 +50,7 @@ namespace ModularMonolith.User.Infrastructure.Startup
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 
-                // User settings.
+                // AppUser settings.
                 options.User.AllowedUserNameCharacters =
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
@@ -50,13 +64,15 @@ namespace ModularMonolith.User.Infrastructure.Startup
             }).AddJwtBearer(jwt =>
             {
                 var key = Encoding.ASCII.GetBytes(configuration["Jwt:Secret"]);
-                jwt.Audience = configuration["Jwt:Issuer"];
+                var issuer = configuration["Jwt:Issuer"];
                 jwt.SaveToken = true;
                 jwt.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidAudiences = new List<string>() { issuer },
                     ValidateAudience = true,
                     RequireExpirationTime = false,
                     ValidateLifetime = true

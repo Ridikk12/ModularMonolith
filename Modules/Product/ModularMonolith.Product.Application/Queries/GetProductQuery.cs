@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MediatR;
+﻿using MediatR;
 using ModularMonolith.Product.Application.Responses;
+using System;
 
 namespace ModularMonolith.Product.Application.Queries
 {

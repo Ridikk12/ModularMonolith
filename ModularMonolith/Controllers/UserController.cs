@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModularMonolith.User.Application.Commands.Login;
 using ModularMonolith.User.Application.Commands.Register;
+using ModularMonolith.User.Application.Queries.GetUserDetails;
 using ModularMonolith.User.Application.Queries.Login;
 
 namespace ModularMonolith.Controllers
@@ -28,7 +29,12 @@ namespace ModularMonolith.Controllers
         [HttpPost]
         [Route("register")]
         public async Task<ActionResult> Register(RegisterRequest request) =>
-            Ok(await _mediator.Send(new RegisterUserCommand(request.UserName, request.Password)));
+            Ok(await _mediator.Send(new RegisterUserCommand(request.UserName, request.Password, request.Name, request.Password)));
+
+        [HttpGet]
+        [Route("{userId}")]
+        public async Task<ActionResult> GetUserDetails(string userId, CancellationToken cancellationToken) =>
+            Ok(await _mediator.Send(new GetUserDetailsQuery(userId), cancellationToken));
 
     }
 }
