@@ -9,8 +9,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using ModularMonolith.User.Application;
 using ModularMonolith.User.Application.Commands.Register;
+using ModularMonolith.User.Application.Entities;
+using ModularMonolith.User.Application.Interfaces;
+using ModularMonolith.User.Application.Queries.GetUserDetails;
 using ModularMonolith.User.Contracts;
-using ModularMonolith.User.Infrastructure.Entities;
+using ModularMonolith.User.Infrastructure.Services;
 using Refit;
 
 namespace ModularMonolith.User.Infrastructure.Startup
@@ -33,7 +36,7 @@ namespace ModularMonolith.User.Infrastructure.Startup
                     c.BaseAddress = new Uri(userModuleUrl);
                 });
 
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserService, GetUserDetailsQueryHandler>();
 
             services.Configure<IdentityOptions>(options =>
             {

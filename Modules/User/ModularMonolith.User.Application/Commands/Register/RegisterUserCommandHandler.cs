@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using ModularMonolith.User.Application.Entities;
 using ModularMonolith.User.Application.Exceptions;
-using ModularMonolith.User.Infrastructure.Entities;
 
 namespace ModularMonolith.User.Application.Commands.Register
 {

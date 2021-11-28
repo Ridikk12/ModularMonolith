@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ModularMonolith.User.Application.Commands.Login;
 using ModularMonolith.User.Application.Commands.Register;
 using ModularMonolith.User.Application.Queries.GetUserDetails;
 using ModularMonolith.User.Application.Queries.Login;
+using ModularMonolith.User.Contracts;
 
 namespace ModularMonolith.Controllers
 {
@@ -33,7 +33,7 @@ namespace ModularMonolith.Controllers
 
         [HttpGet]
         [Route("{userId}")]
-        public async Task<ActionResult> GetUserDetails(string userId, CancellationToken cancellationToken) =>
+        public async Task<ActionResult<UserDto>> GetUserDetails(string userId, CancellationToken cancellationToken) =>
             Ok(await _mediator.Send(new GetUserDetailsQuery(userId), cancellationToken));
 
     }

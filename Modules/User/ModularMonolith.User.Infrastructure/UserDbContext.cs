@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ModularMonolith.User.Infrastructure.Entities;
+using ModularMonolith.User.Application.Entities;
 
 namespace ModularMonolith.User.Infrastructure
 {

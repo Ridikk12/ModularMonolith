@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
 
-namespace ModularMonolith.User.Infrastructure.Entities
+namespace ModularMonolith.User.Application.Entities
 {
     public class AppUser : IdentityUser
     {

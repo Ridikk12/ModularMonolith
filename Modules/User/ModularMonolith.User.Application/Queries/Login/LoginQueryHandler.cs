@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using ModularMonolith.User.Application.Entities;
 using ModularMonolith.User.Application.Exceptions;
-using ModularMonolith.User.Application.Queries.Login;
-using ModularMonolith.User.Infrastructure.Entities;
+using ModularMonolith.User.Application.Interfaces;
 
-namespace ModularMonolith.User.Application.Commands.Login
+namespace ModularMonolith.User.Application.Queries.Login
 {
     public class LoginQueryHandler : IRequestHandler<LoginQuery, LoginResponse>
     {

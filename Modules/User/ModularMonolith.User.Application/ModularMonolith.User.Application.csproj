@@ -15,5 +15,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.User.Contracts\ModularMonolith.User.Contracts.csproj" />
 	</ItemGroup>
 		</Project>

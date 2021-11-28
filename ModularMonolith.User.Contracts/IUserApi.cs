@@ -1,6 +1,5 @@
-﻿using System.Net.Http;
+﻿using Refit;
 using System.Threading.Tasks;
-using Refit;
 
 namespace ModularMonolith.User.Contracts
 {

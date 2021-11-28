@@ -2,9 +2,9 @@
 using ModularMonolith.Exceptions.Abstraction;
 using ModularMonolith.Product.Application.Responses;
 using ModularMonolith.Product.Domain.Interfaces;
+using ModularMonolith.User.Contracts;
 using System.Threading;
 using System.Threading.Tasks;
-using ModularMonolith.User.Contracts;
 
 namespace ModularMonolith.Product.Application.Queries
 {
