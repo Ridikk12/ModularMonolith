@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ModularMonolith.User.Application.Commands.Login
+﻿namespace ModularMonolith.User.Application.Queries.Login
 {
     public class LoginRequest
     {

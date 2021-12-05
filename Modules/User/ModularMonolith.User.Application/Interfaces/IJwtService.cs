@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
-using System.Text;
 
-namespace ModularMonolith.User.Application
+namespace ModularMonolith.User.Application.Interfaces
 {
     public interface IJwtService
     {

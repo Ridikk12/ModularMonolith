@@ -5,6 +5,7 @@ using ModularMonolith.Product.Domain.Interfaces;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using ModularMonolith.Infrastructure;
 
 namespace ModularMonolith.Product.Application.Commands
 {
@@ -12,19 +13,24 @@ namespace ModularMonolith.Product.Application.Commands
     {
         private readonly IProductEventBus _eventBus;
         private readonly IProductRepository _productRepository;
-        public AddProductCommandHandler(IProductEventBus eventBus, IProductRepository productRepository)
+        private readonly IUserContext _userContext;
+        public AddProductCommandHandler(IProductEventBus eventBus,
+            IProductRepository productRepository,
+            IUserContext userContext)
         {
             _eventBus = eventBus;
             _productRepository = productRepository;
+            _userContext = userContext;
         }
 
         public async Task<Guid> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
-            var product = Domain.Entities.Product.New(request.Name, request.Description);
+            var userId = _userContext.UserId;
+            var product = Domain.Entities.Product.New(request.Name, request.Description, userId);
 
             await _productRepository.Add(product);
 
-            await _eventBus.Publish(new ProductCratedIntegrationEvent(product.Id, request.Name, request.Description, "", DateTime.UtcNow));
+            await _eventBus.Publish(new ProductCratedIntegrationEvent(product.Id, request.Name, request.Description, userId, DateTime.UtcNow));
 
             await _productRepository.CommitAsync();
             return product.Id;

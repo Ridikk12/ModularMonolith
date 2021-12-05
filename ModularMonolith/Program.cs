@@ -24,7 +24,6 @@ namespace ModularMonolith
             }
             catch (Exception ex) {
                 Log.Fatal(ex, "Host terminated unexpectedly");
-                throw;
             }
             finally {
                 Log.CloseAndFlush();

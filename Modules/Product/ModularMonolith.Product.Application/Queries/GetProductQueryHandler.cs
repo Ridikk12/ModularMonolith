@@ -2,6 +2,7 @@
 using ModularMonolith.Exceptions.Abstraction;
 using ModularMonolith.Product.Application.Responses;
 using ModularMonolith.Product.Domain.Interfaces;
+using ModularMonolith.User.Contracts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,10 +11,14 @@ namespace ModularMonolith.Product.Application.Queries
     public class GetProductQueryHandler : IRequestHandler<GetProductQuery, GetProductQueryResponse>
     {
         private readonly IProductRepository _productRepository;
+        private readonly IUserService _userModuleService;
+        private readonly IUserApi _userApi;
 
-        public GetProductQueryHandler(IProductRepository productRepository)
+        public GetProductQueryHandler(IProductRepository productRepository, IUserService userModuleService, IUserApi userApi)
         {
             _productRepository = productRepository;
+            _userModuleService = userModuleService;
+            _userApi = userApi;
         }
         public async Task<GetProductQueryResponse> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
@@ -22,7 +27,13 @@ namespace ModularMonolith.Product.Application.Queries
             if (product is null)
                 throw new NotFoundException(request.Id.ToString(), nameof(Domain.Entities.Product));
 
-            return new GetProductQueryResponse(product.Id, product.Name);
+            //User by direct reference
+            var user = await _userModuleService.GetUserDetails(product.CreatedBy);
+
+            //User by Http request
+            var user2 = await _userApi.GetUserDetails(product.CreatedBy);
+
+            return new GetProductQueryResponse(product.Id, product.Name, user.FullName);
         }
     }
 }

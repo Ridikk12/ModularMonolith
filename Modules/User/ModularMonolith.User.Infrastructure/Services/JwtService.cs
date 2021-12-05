@@ -1,13 +1,13 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using ModularMonolith.User.Application;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using ModularMonolith.User.Application.Interfaces;
 
-namespace ModularMonolith.User.Infrastructure
+namespace ModularMonolith.User.Infrastructure.Services
 {
     public class JwtService : IJwtService
     {

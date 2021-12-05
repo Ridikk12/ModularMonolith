@@ -21,4 +21,4 @@
 		<ProjectReference Include="..\ModularMonolith.History.Domain\ModularMonolith.History.Domain.csproj" />
 	</ItemGroup>
 
-		</Project>
+</Project>

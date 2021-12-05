@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using ModularMonolith.User.Application.Queries.Login;
 
-namespace ModularMonolith.User.Application.Commands.Login
+namespace ModularMonolith.User.Application.Queries.Login
 {
     public class LoginQuery : IRequest<LoginResponse>
     {

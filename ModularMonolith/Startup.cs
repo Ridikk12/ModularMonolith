@@ -1,3 +1,4 @@
+using System;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,11 +9,14 @@ using Microsoft.OpenApi.Models;
 using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
 using ModularMonolith.History.Infrastructure.Startup;
+using ModularMonolith.Infrastructure;
 using ModularMonolith.Infrastructure.Exceptions;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
 using ModularMonolith.Product.Infrastructure.Startup;
+using ModularMonolith.User.Contracts;
 using ModularMonolith.User.Infrastructure.Startup;
+using Refit;
 
 namespace ModularMonolith
 {
@@ -38,6 +42,8 @@ namespace ModularMonolith
             services.AddHttpContextAccessor();
             services.AddOutBoxModule();
             services.AddInMemoryEventBus();
+
+            services.AddScoped<IUserContext, UserContext>();
 
             services.AddUserModule(Configuration);
 

@@ -9,20 +9,21 @@ namespace ModularMonolith.Product.Domain.Entities
         {
 
         }
-        private Product(string name, string description)
+        private Product(string name, string description, string createdBy)
         {
             Name = name;
             Description = description;
+            CreatedBy = createdBy;
         }
         public string Name { get; }
         public string Description { get; }
 
-        public static Product New(string name, string description)
+        public static Product New(string name, string description, string createdBy)
         {
             if (string.IsNullOrEmpty(name))
                 throw new NameRequiredException();
 
-            return new Product(name, description);
+            return new Product(name, description, createdBy);
         }
     }
 }

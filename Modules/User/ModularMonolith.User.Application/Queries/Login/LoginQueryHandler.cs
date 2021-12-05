@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using ModularMonolith.User.Application.Entities;
 using ModularMonolith.User.Application.Exceptions;
-using ModularMonolith.User.Application.Queries.Login;
+using ModularMonolith.User.Application.Interfaces;
 
-namespace ModularMonolith.User.Application.Commands.Login
+namespace ModularMonolith.User.Application.Queries.Login
 {
     public class LoginQueryHandler : IRequestHandler<LoginQuery, LoginResponse>
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IJwtService _jwtService;
 
-        public LoginQueryHandler(UserManager<IdentityUser> userManager, IJwtService jwtService)
+        public LoginQueryHandler(UserManager<AppUser> userManager, IJwtService jwtService)
         {
             _userManager = userManager;
             _jwtService = jwtService;
@@ -33,7 +32,8 @@ namespace ModularMonolith.User.Application.Commands.Login
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role,"User")
+                new Claim(ClaimTypes.Role,"User"),
+                new Claim("UserId",user.Id)
             };
 
             return new LoginResponse(_jwtService.GenerateJwt(claims));
