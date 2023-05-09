@@ -8,7 +8,7 @@ using ModularMonolith.User.Infrastructure;
 
 namespace ModularMonolith.User.Infrastructure.Migrations
 {
-    [DbContext(typeof(UserDbContext))]
+    [DbContext(typeof(UsersDbContext))]
     partial class UserDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

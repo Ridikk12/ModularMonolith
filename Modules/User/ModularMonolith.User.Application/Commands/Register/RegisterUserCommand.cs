@@ -11,11 +11,10 @@ namespace ModularMonolith.User.Application.Commands.Register
             Name = name;
             Surname = surname;
         }
+
         public string UserName { get; }
         public string Password { get; }
         public string Name { get; }
         public string Surname { get; }
-
     }
-
 }

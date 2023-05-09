@@ -7,17 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith", "ModularM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{067D6708-33A0-4B33-B453-D6C0BD117EDB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{DAC28A84-411C-4D7D-B42D-5E0E8F296EE3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{DAC28A84-411C-4D7D-B42D-5E0E8F296EE3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "History", "History", "{D8618460-396F-4C2A-A1A6-C63A7C5CB8FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Contracts", "ModularMonolith.Contracts\ModularMonolith.Contracts.csproj", "{72EE1401-CD71-4A58-96E0-4DBAB808D40F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Product.Application", "Modules\Product\ModularMonolith.Product.Application\ModularMonolith.Product.Application.csproj", "{A0E5B6AB-6940-408C-9051-BA450D2B4B58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Products.Application", "Modules\Products\ModularMonolith.Products.Application\ModularMonolith.Products.Application.csproj", "{A0E5B6AB-6940-408C-9051-BA450D2B4B58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Product.Domain", "Modules\Product\ModularMonolith.Product.Domain\ModularMonolith.Product.Domain.csproj", "{7DD71BC9-02CD-4ECC-AD7C-5D3482F346FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Products.Domain", "Modules\Products\ModularMonolith.Products.Domain\ModularMonolith.Products.Domain.csproj", "{7DD71BC9-02CD-4ECC-AD7C-5D3482F346FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Product.Infrastructure", "Modules\Product\ModularMonolith.Product.Infrastructure\ModularMonolith.Product.Infrastructure.csproj", "{5ED32E99-99DF-422E-BE53-B7736F4A492D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Products.Infrastructure", "Modules\Products\ModularMonolith.Products.Infrastructure\ModularMonolith.Products.Infrastructure.csproj", "{5ED32E99-99DF-422E-BE53-B7736F4A492D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.History.Application", "Modules\History\ModularMonolith.History.Application\ModularMonolith.History.Application.csproj", "{4D076BF4-BA82-4742-A5EE-28DF7BBFB127}"
 EndProject
@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.Exceptions.Abstraction", "ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj", "{89A320E0-A1C0-4081-864E-BC121290363C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{CA6EE366-C910-40EA-95FC-C043CED28594}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{CA6EE366-C910-40EA-95FC-C043CED28594}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularMonolith.User.Application", "Modules\User\ModularMonolith.User.Application\ModularMonolith.User.Application.csproj", "{E95897FA-9475-4760-BA52-E97B1DE17549}"
 EndProject

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<AssemblyName>ModularMonolith.Products.Domain</AssemblyName>
+		<RootNamespace>ModularMonolith.Products.Domain</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<UserSecretsId>8cc2beb0-d18c-49b2-9102-c795770155df</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+		<PackageReference Include="MediatR" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\ModularMonolith.Infrastructure\ModularMonolith.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\OutBox\ModularMonolith.Outbox\ModularMonolith.Outbox.csproj" />
+		<ProjectReference Include="..\ModularMonolith.Products.Application\ModularMonolith.Products.Application.csproj" />
+		<ProjectReference Include="..\ModularMonolith.Products.Domain\ModularMonolith.Products.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

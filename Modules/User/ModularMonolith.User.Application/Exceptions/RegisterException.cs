@@ -7,7 +7,7 @@ using ModularMonolith.Exceptions.Abstraction;
 
 namespace ModularMonolith.User.Application.Exceptions
 {
-    public class RegisterException : ValidationException
+    public class RegisterException : ModularMonolithValidationException
     {
         public RegisterException(IEnumerable<IdentityError> errors) : base("Unable to register account.", 102)
         {

@@ -1,4 +1,5 @@
 using System;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,14 +10,14 @@ using Microsoft.OpenApi.Models;
 using ModularMonolith.Configs;
 using ModularMonolith.Contracts;
 using ModularMonolith.History.Infrastructure.Startup;
-using ModularMonolith.Infrastructure;
+using ModularMonolith.Infrastructure.Behaviours;
 using ModularMonolith.Infrastructure.Exceptions;
+using ModularMonolith.Infrastructure.Services;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
-using ModularMonolith.Product.Infrastructure.Startup;
-using ModularMonolith.User.Contracts;
+using ModularMonolith.Products.Application.Commands.AddProduct;
+using ModularMonolith.Products.Infrastructure.Startup;
 using ModularMonolith.User.Infrastructure.Startup;
-using Refit;
 
 namespace ModularMonolith
 {
@@ -32,45 +33,20 @@ namespace ModularMonolith
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddRouting(x => x.LowercaseUrls = true);
-            services.AddMediatR(typeof(ProductCratedIntegrationEvent));
 
-            services.AddProductModule();
-            services.AddHistoryModule();
-            services.AddHttpContextAccessor();
-            services.AddOutBoxModule();
-            services.AddInMemoryEventBus();
-
-            services.AddScoped<IUserContext, UserContext>();
-
-            services.AddUserModule(Configuration);
-
+            services.AddProductModule(Configuration)
+                .AddHistoryModule(Configuration)
+                .AddOutBoxModule(Configuration)
+                .AddUserModule(Configuration);
+            
+            services.AddApplicationCoreServices();
+            services.AddApplicationSwagger();
+            
             services.AddHostedService<OutBoxWorker>();
 
-            services.AddSwaggerGen(c => {
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme() {
-                    Name = "Bearer",
-                    BearerFormat = "JWT",
-                    Scheme = "bearer",
-                    Description = "Specify the authorization token.",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.Http,
-                });
 
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-                    {
-                        new OpenApiSecurityScheme {
-                            Reference = new OpenApiReference {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new string[] { }
-                    }
-                });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

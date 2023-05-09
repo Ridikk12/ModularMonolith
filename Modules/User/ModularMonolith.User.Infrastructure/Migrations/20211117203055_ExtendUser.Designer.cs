@@ -9,7 +9,7 @@ using ModularMonolith.User.Infrastructure;
 
 namespace ModularMonolith.User.Infrastructure.Migrations
 {
-    [DbContext(typeof(UserDbContext))]
+    [DbContext(typeof(UsersDbContext))]
     [Migration("20211117203055_ExtendUser")]
     partial class ExtendUser
     {
