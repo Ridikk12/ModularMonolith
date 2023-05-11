@@ -2,12 +2,16 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest' 
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    version: 6.x
+    includePreviewVersions: true
 - task: DotNetCoreCLI@2
   displayName: Restore Nuget Packages
   inputs:
@@ -32,14 +36,14 @@ steps:
   inputs:  
       codeCoverageTool: Cobertura  
       summaryFileLocation: '**/*coverage.cobertura.xml'
-      additionalCodeCoverageFiles:   
-- task: DotNetCoreCLI@2
-  displayName: 'Publish Application'  
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+#       additionalCodeCoverageFiles:   
+# - task: DotNetCoreCLI@2
+#   displayName: 'Publish Application'  
+#   inputs:
+#     command: publish
+#     publishWebProjects: True
+#     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+#     zipAfterPublish: True
 
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
 - task: PublishPipelineArtifact@1
