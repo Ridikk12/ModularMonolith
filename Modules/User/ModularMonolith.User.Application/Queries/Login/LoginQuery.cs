@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ModularMonolith.User.Application.Queries.Login.Responses;
 
 namespace ModularMonolith.User.Application.Queries.Login
 {

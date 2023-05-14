@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using ModularMonolith.Exceptions.Abstraction;
-using Newtonsoft.Json;
 using Serilog;
 using Serilog.Events;
 using System;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
+using FluentValidation;
 
 namespace ModularMonolith.Infrastructure.Exceptions
 {
@@ -13,6 +14,12 @@ namespace ModularMonolith.Infrastructure.Exceptions
     {
         private readonly RequestDelegate _next;
         private const string ContentType = "application/json";
+
+        private static readonly JsonSerializerOptions DefaultWebOptions = new()
+        {
+            PropertyNameCaseInsensitive = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        };
 
         public ExceptionLoggingMiddleware(RequestDelegate next)
         {
@@ -34,23 +41,29 @@ namespace ModularMonolith.Infrastructure.Exceptions
                 httpContext.Response.StatusCode = GetHttpStatusCode(ex);
 
                 var exceptionMessage = FormatErrorMessage(ex);
-                await httpContext.Response.WriteAsync(exceptionMessage);
+                var message = JsonSerializer.Serialize(exceptionMessage, DefaultWebOptions);
+
+                await httpContext.Response.WriteAsync(message);
             }
         }
 
-        private string FormatErrorMessage(Exception ex) =>
+        private static ErrorResponse FormatErrorMessage(Exception ex) =>
             ex switch
             {
-                DomainException domainException => JsonConvert.SerializeObject(
-                    new ErrorMessage(domainException.ExceptionCode, domainException.Message)),
-                ValidationException validationException => JsonConvert.SerializeObject(new ValidationErrorMessage(validationException.ExceptionCode, validationException.Message,
-                    validationException.ValidationMessages)),
-                AppException appException => JsonConvert.SerializeObject(new ErrorMessage(appException.ExceptionCode,
-                    appException.Message)),
-                _ => JsonConvert.SerializeObject(new ErrorMessage(-1, ex.Message)),
+                DomainException domainException =>
+                    new ErrorResponse(domainException.ExceptionCode, domainException.Message),
+                ModularMonolithValidationException validationException => new ErrorResponse(
+                    validationException.ExceptionCode,
+                    validationException.Message,
+                    validationException.ValidationMessages),
+                ValidationException validationException => new ErrorResponse(validationException.Errors,
+                    validationException.Message, -1),
+                AppException appException => new ErrorResponse(appException.ExceptionCode,
+                    appException.Message),
+                _ => new ErrorResponse(-1, ex.Message),
             };
 
-        private int GetHttpStatusCode(Exception ex)
+        private static int GetHttpStatusCode(Exception ex)
             => ex switch
             {
                 DomainException _ => (int)HttpStatusCode.BadRequest,
@@ -59,7 +72,7 @@ namespace ModularMonolith.Infrastructure.Exceptions
             };
 
 
-        private LogEventLevel GetLoggerLevel(Exception ex)
+        private static LogEventLevel GetLoggerLevel(Exception ex)
             => ex switch
             {
                 DomainException _ => LogEventLevel.Information,

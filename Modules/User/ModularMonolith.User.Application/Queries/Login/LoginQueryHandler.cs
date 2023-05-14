@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using ModularMonolith.User.Application.Entities;
 using ModularMonolith.User.Application.Exceptions;
 using ModularMonolith.User.Application.Interfaces;
+using ModularMonolith.User.Application.Queries.Login.Responses;
 
 namespace ModularMonolith.User.Application.Queries.Login
 {

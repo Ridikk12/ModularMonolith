@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<AssemblyName>ModularMonolith.Products.Application</AssemblyName>
+		<RootNamespace>ModularMonolith.Products.Application</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Commands\**" />
+		<Compile Include="Commands\AddProduct\AddProductCommand.cs" />
+		<Compile Include="Commands\AddProduct\AddProductCommandHandler.cs" />
+		<Compile Include="Commands\AddProduct\AddProductRequestValidator.cs" />
+		<Compile Include="Commands\AddProduct\Requests\AddProductRequest.cs" />
+		<EmbeddedResource Remove="Commands\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.5.2" />
+		<PackageReference Include="MediatR" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.Infrastructure\ModularMonolith.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.User.Contracts\ModularMonolith.User.Contracts.csproj" />
+		<ProjectReference Include="..\ModularMonolith.Products.Domain\ModularMonolith.Products.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

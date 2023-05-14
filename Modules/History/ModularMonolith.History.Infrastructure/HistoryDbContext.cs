@@ -9,11 +9,6 @@ namespace ModularMonolith.History.Infrastructure
 {
     public class HistoryDbContext : OutboxDbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                @"Server=.\;Database=ModularMonolith;Integrated Security=True");
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("hi");
@@ -22,5 +17,9 @@ namespace ModularMonolith.History.Infrastructure
         }
 
         public DbSet<EntityHistory> EntityHistories { get; set; }
+
+        public HistoryDbContext(DbContextOptions<OutboxDbContext> options) : base(options)
+        {
+        }
     }
 }

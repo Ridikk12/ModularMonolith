@@ -9,7 +9,7 @@ using ModularMonolith.User.Infrastructure;
 
 namespace ModularMonolith.User.Infrastructure.Migrations
 {
-    [DbContext(typeof(UserDbContext))]
+    [DbContext(typeof(UsersDbContext))]
     [Migration("20211022102431_InitAuth")]
     partial class InitAuth
     {

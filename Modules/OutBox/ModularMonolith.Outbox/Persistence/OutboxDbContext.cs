@@ -6,11 +6,11 @@ namespace ModularMonolith.Outbox.Persistence
     public class OutboxDbContext : DbContext
     {
         public DbSet<OutBoxMessage> OutBoxMessages { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        public OutboxDbContext(DbContextOptions<OutboxDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer(
-                @"Server=.\;Database=ModularMonolith;Integrated Security=True");
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(OutBoxMessage).Assembly);
