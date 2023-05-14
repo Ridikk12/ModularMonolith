@@ -1,7 +1,7 @@
 # ModularMonolith
 [![Build Status](https://dev.azure.com/ndebosz/ModularMonolith/_apis/build/status/Ridikk12.ModularMonolith?branchName=master)](https://dev.azure.com/ndebosz/ModularMonolith/_build/latest?definitionId=1&branchName=master)
 
-[If you feel my articles/code help you - buy me a coffee ☕](https://www.buymeacoffee.com/Ridikk12a])
+[If you feel my articles/code help you - buy me a coffee ☕](https://www.buymeacoffee.com/Ridikk12a)
 
 The step by step approach to modular-monolith architecture style.
 # Part1 MVP:
