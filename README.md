@@ -1,6 +1,8 @@
 # ModularMonolith
 [![Build Status](https://dev.azure.com/ndebosz/ModularMonolith/_apis/build/status/Ridikk12.ModularMonolith?branchName=master)](https://dev.azure.com/ndebosz/ModularMonolith/_build/latest?definitionId=1&branchName=master)
 
+[If you feel my articles/code help you - buy me a coffee ☕](https://www.buymeacoffee.com/Ridikk12a])
+
 The step by step approach to modular-monolith architecture style.
 # Part1 MVP:
 ![Screenshot](docs/architecture.png)
@@ -20,4 +22,3 @@ Part3 - https://ridikk12.medium.com/easy-modular-monolith-part-3-logging-57cacea
 Part4 - https://ridikk12.medium.com/easy-modular-monolith-part-4-global-exception-handling-8355cc4905d4
 
 Part5 - https://itnext.io/easy-modular-monolith-part-5-jwt-authentication-authorization-f7a0a275226f
-
