@@ -18,8 +18,7 @@ namespace ModularMonolith.History.Application.EventHandlers.Products
         }
         public async Task Handle(ProductCratedIntegrationEvent notification, CancellationToken cancellationToken)
         {
-            var history = EntityHistory.Create(notification.Id, notification.Name, EventType.Create,
-                notification.CreatedBy, notification.CreatedOn);
+            var history = EntityHistory.Create(notification.Id, notification.Name, EventType.Create);
             await _repository.Add(history);
             await _repository.CommitAsync();
         }

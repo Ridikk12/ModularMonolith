@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModularMonolith.History.Infrastructure;
+using ModularMonolith.History.Infrastructure.Persistence;
 
 namespace ModularMonolith.History.Infrastructure.Migrations
 {

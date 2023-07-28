@@ -34,13 +34,13 @@ namespace ModularMonolith.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns>Id of created product</returns>
         [HttpPost]
-        [ProducesResponseType(typeof(CreatedResponse),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreatedResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(ErrorResponse),StatusCodes.Status400BadRequest)]
-
+        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Products(AddProductRequest request, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new AddProductCommand(request.Name, request.Description), cancellationToken);
+            var result = await _mediator.Send(new AddProductCommand(request.Name, request.Description, request.Price, request.Color),
+                cancellationToken);
             return Ok(new CreatedResponse(result));
         }
 
@@ -50,8 +50,8 @@ namespace ModularMonolith.Controllers
         /// <param name="id"></param>
         /// <param name="cancellationToken"></param>
         /// <returns>Return product by id</returns>
-        [HttpGet]
-        [ProducesResponseType(typeof(GetProductQueryResponse),StatusCodes.Status200OK)]
+        [HttpGet("{id:guid}")]
+        [ProducesResponseType(typeof(GetProductQueryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> Products(Guid id, CancellationToken cancellationToken) =>
