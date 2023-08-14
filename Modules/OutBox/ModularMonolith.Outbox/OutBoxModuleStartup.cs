@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ModularMonolith.Infrastructure.Persistence;
 using ModularMonolith.Outbox.Persistence;
 
 namespace ModularMonolith.Outbox

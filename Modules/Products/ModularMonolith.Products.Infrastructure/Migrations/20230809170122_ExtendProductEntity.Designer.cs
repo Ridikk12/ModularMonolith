@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModularMonolith.Products.Infrastructure;
 
@@ -11,9 +12,11 @@ using ModularMonolith.Products.Infrastructure;
 namespace ModularMonolith.Products.Infrastructure.Migrations
 {
     [DbContext(typeof(ProductsModuleDbContext))]
-    partial class ProductDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230809170122_ExtendProductEntity")]
+    partial class ExtendProductEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

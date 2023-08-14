@@ -8,7 +8,7 @@ namespace ModularMonolith.Infrastructure.Logging
 {
     public static class LoggerConfiguration
     {
-        public static IHostBuilder UseLogger(this IHostBuilder hostBuilder) => hostBuilder.UseSerilog(
+        public static IHostBuilder UseSerilogLogger(this IHostBuilder hostBuilder) => hostBuilder.UseSerilog(
             (context, configuration) =>
            {
                bool.TryParse(context.Configuration["Logger:EnableConsole"], out var enableConsole);

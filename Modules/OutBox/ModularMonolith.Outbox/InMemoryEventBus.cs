@@ -1,11 +1,11 @@
-﻿using ModularMonolith.Contracts.Events;
-using ModularMonolith.Outbox.Entities;
-using ModularMonolith.Outbox.Persistence;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ModularMonolith.Contracts.Events;
+using ModularMonolith.Outbox.Entities;
+using ModularMonolith.Outbox.Persistence;
 
-namespace ModularMonolith.Infrastructure
+namespace ModularMonolith.Outbox
 {
     public class InMemoryEventBus : IEventBus
     {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ModularMonolith.Contracts.Events;
 using ModularMonolith.Infrastructure;
+using ModularMonolith.Outbox;
 
 namespace ModularMonolith.Configs
 {

@@ -12,6 +12,7 @@
 		<Compile Include="Commands\AddProduct\AddProductCommandHandler.cs" />
 		<Compile Include="Commands\AddProduct\AddProductRequestValidator.cs" />
 		<Compile Include="Commands\AddProduct\Requests\AddProductRequest.cs" />
+		<Compile Include="Commands\AddProduct\Requests\ColorDto.cs" />
 		<EmbeddedResource Remove="Commands\**" />
 	</ItemGroup>
 

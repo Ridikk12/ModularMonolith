@@ -6,6 +6,7 @@ using ModularMonolith.History.Application.EventBus;
 using ModularMonolith.History.Application.Queries;
 using ModularMonolith.History.Application.Queries.GetHistory;
 using ModularMonolith.History.Domain.Interfaces;
+using ModularMonolith.History.Infrastructure.Persistence;
 
 namespace ModularMonolith.History.Infrastructure.Startup
 {

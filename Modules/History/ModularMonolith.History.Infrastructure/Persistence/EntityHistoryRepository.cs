@@ -1,13 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ModularMonolith.History.Domain.Entities;
-using ModularMonolith.History.Domain.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ModularMonolith.History.Domain.Entities;
+using ModularMonolith.History.Domain.Interfaces;
 
-namespace ModularMonolith.History.Infrastructure
+namespace ModularMonolith.History.Infrastructure.Persistence
 {
     public class EntityHistoryRepository : IHistoryEntityRepository
     {

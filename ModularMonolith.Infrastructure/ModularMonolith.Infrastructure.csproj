@@ -6,8 +6,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
+		<ProjectReference Include="..\ModularMonolith.Domain\ModularMonolith.Domain.csproj" />
 		<ProjectReference Include="..\ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj" />
-		<ProjectReference Include="..\Modules\OutBox\ModularMonolith.Outbox\ModularMonolith.Outbox.csproj" />
+		<ProjectReference Include="..\ModularMonolith.User.Contracts\ModularMonolith.User.Contracts.csproj" />
 		<PackageReference Include="FluentValidation" Version="11.5.2" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />

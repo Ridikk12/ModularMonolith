@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ModularMonolith.Infrastructure.Services;
 using ModularMonolith.Outbox.Persistence;
 using ModularMonolith.Products.Domain.Entities;
 using ModularMonolith.Products.Infrastructure.EntitiesConfigurations;
@@ -16,8 +17,10 @@ namespace ModularMonolith.Products.Infrastructure
 
         public DbSet<Product> Products { get; set; }
 
-        public ProductsModuleDbContext(DbContextOptions<OutboxDbContext> options) : base(options)
+        public ProductsModuleDbContext(DbContextOptions<ProductsModuleDbContext> options, IUserContext userContext) : base(options, userContext)
         {
+
         }
+        
     }
 }
