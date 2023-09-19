@@ -8,11 +8,13 @@
 
 	<ItemGroup>
 		<Compile Remove="Commands\**" />
+		<Compile Include="Commands\AddInventoryProduct\AddInventoryProductCommand.cs" />
+		<Compile Include="Commands\AddInventoryProduct\AddInventoryProductCommandHandler.cs" />
 		<Compile Include="Commands\AddProduct\AddProductCommand.cs" />
 		<Compile Include="Commands\AddProduct\AddProductCommandHandler.cs" />
 		<Compile Include="Commands\AddProduct\AddProductRequestValidator.cs" />
+		<Compile Include="Commands\AddProduct\Dtos\ColorDto.cs" />
 		<Compile Include="Commands\AddProduct\Requests\AddProductRequest.cs" />
-		<Compile Include="Commands\AddProduct\Requests\ColorDto.cs" />
 		<EmbeddedResource Remove="Commands\**" />
 	</ItemGroup>
 

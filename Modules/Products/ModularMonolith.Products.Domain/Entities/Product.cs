@@ -10,8 +10,9 @@ namespace ModularMonolith.Products.Domain.Entities
     {
         public string Name { get; }
         public string Description { get; }
-        public Money Price { get; set; }
-        public Color Color { get; set; }
+        public Money Price { get; }
+        public Color Color { get; }
+        public Manufacturer Manufacturer { get; private set; }
 
 
         private Product()
@@ -24,6 +25,7 @@ namespace ModularMonolith.Products.Domain.Entities
             Description = description;
             Price = price;
             Color = color;
+            Id = Guid.NewGuid();
         }
 
         public static Product New(string name, string description, Money price, Color color)
@@ -32,7 +34,7 @@ namespace ModularMonolith.Products.Domain.Entities
             {
                 throw new NameRequiredException();
             }
-            
+
             if (price.Price < 0)
             {
                 throw new InvalidPriceException();

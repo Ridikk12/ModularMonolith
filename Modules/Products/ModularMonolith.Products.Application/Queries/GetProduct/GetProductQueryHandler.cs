@@ -24,7 +24,8 @@ namespace ModularMonolith.Products.Application.Queries.GetProduct
             if (product is null)
                 throw new NotFoundException(request.Id.ToString(), nameof(Product));
 
-            return new GetProductQueryResponse(product.Id, product.Name);
+            return new GetProductQueryResponse(product.Id, product.Name, product.Color.ToString(), product.Price.Price,
+                product.Price.CurrencySymbol.ToString());
         }
     }
 }

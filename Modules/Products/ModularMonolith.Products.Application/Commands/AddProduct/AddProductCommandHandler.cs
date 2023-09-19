@@ -27,7 +27,8 @@ namespace ModularMonolith.Products.Application.Commands.AddProduct
 
         public async Task<Guid> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
-            var color = Color(request.Color);
+            var color = GetColor(request.Color);
+           
             var product = Product.New(request.Name, request.Description,
                 new Money(request.Price, CurrencySymbol.Usd), color);
 
@@ -39,7 +40,7 @@ namespace ModularMonolith.Products.Application.Commands.AddProduct
             return product.Id;
         }
 
-        private Color Color(ColorDto colorDto)
+        private Color GetColor(ColorDto colorDto)
             => Enum.Parse<Color>(colorDto.ToString());
     }
 }
