@@ -11,3 +11,9 @@ namespace ModularMonolith.Exceptions.Abstraction
         }
     }
 }
+
+public static class ExceptionCodes
+{
+    public static int ProductAlreadySold = 1000;
+}
+
