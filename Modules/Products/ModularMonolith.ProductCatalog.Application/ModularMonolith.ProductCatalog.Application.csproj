@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>ModularMonolith.Products.Application</RootNamespace>
+		<PackageId>ModularMonolith.ProductCatalog.Application</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Commands\**" />
+		<EmbeddedResource Remove="Commands\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.5.2" />
+		<PackageReference Include="MediatR" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\ModularMonolith.Contracts\ModularMonolith.Contracts.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.Infrastructure\ModularMonolith.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.User.Contracts\ModularMonolith.User.Contracts.csproj" />
+		<ProjectReference Include="..\ModularMonolith.ProductCatalog.Domain\ModularMonolith.ProductCatalog.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Features\Products\Dtos\" />
+	</ItemGroup>
+
+</Project>

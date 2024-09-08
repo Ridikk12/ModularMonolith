@@ -56,7 +56,7 @@ namespace ModularMonolith.Outbox.WorkerProcess
                         }
                         catch (Exception ex)
                         {
-                            _logger.LogError(ex, "[Outbox] Exception when handling message. Message body: {message}",
+                            _logger.LogError(ex, "[Outbox] Exception when handling message. Message body: {Message}",
                                 outBoxMessage.Message);
                         }
                     }

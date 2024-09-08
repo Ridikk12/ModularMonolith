@@ -1,7 +1,6 @@
-﻿namespace ModularMonolith.Contracts.Events
-{
-    public interface IIntegrationEvent
-    {
+﻿namespace ModularMonolith.Contracts.Events;
 
-    }
+public interface IIntegrationEvent
+{
+
 }

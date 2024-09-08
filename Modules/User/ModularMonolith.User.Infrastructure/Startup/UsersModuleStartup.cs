@@ -87,8 +87,7 @@ namespace ModularMonolith.User.Infrastructure.Startup
                     ValidateLifetime = true
                 };
             });
-
-
+            
             services.AddScoped<IJwtService, JwtService>();
 
             return services;

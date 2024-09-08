@@ -6,9 +6,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ModularMonolith.History.Application.Queries;
-using ModularMonolith.History.Application.Queries.GetHistory;
-using ModularMonolith.History.Application.Queries.GetHistory.Responses;
+using ModularMonolith.History.Application.Features.History.Get;
+using ModularMonolith.History.Application.Features.History.Get.Responses;
 using ModularMonolith.Infrastructure.Exceptions;
 
 namespace ModularMonolith.Controllers
