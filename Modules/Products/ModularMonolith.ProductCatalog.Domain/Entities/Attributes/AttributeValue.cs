@@ -1,3 +1,6 @@
 ﻿namespace ModularMonolith.Products.Domain.Entities.Attributes;
 
-public record AttributeValue(string Value);
+public class AttributeValue
+{
+    public string Value { get; set; }
+}

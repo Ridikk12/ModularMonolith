@@ -6,6 +6,11 @@ public class Manufacturer : BaseEntity
 {
     public string Name { get; }
     public string Code { get; }
+    
+    private Manufacturer()
+    {
+        
+    }
 
     public Manufacturer(string name, string code)
     {

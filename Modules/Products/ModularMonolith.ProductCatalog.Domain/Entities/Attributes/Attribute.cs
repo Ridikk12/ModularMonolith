@@ -7,5 +7,5 @@ public class Attribute : BaseEntity
 {
     public AttributeType Type { get; set; }
     public string Name { get; set; }
-    public ICollection<AttributeValue> Values { get; set; }
+    public List<AttributeValue> Values { get; set; }
 }

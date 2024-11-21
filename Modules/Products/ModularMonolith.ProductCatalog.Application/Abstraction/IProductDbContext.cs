@@ -9,7 +9,6 @@ namespace ModularMonolith.Products.Application.Abstraction;
 public interface IProductModuleDbContext
 {
     DbSet<Attribute> Attributes { get; }
-    DbSet<Location> Locations { get; }
     DbSet<Product> Products { get; }
     DbSet<Manufacturer> Manufacturers { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());

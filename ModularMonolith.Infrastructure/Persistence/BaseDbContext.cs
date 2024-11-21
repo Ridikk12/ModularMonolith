@@ -6,7 +6,7 @@ using ModularMonolith.Infrastructure.Services;
 
 namespace ModularMonolith.Infrastructure.Persistence;
 
-public class BaseDbContext : DbContext
+public abstract class BaseDbContext : DbContext
 {
     private readonly IUserContext _userContext;
     

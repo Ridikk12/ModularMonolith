@@ -27,7 +27,7 @@ public class CreateAttributeCommandHandler : IRequestHandler<CreateAttributeComm
         var attribute = new Attribute
         {
             Name = request.Name,
-            Values = request.Values.Select(x => new AttributeValue(x)).ToList(),
+            Values = request.Values.Select(x => new AttributeValue { Value = x}).ToList(),
             Type = AttributeType.Multiselect,
         };
 

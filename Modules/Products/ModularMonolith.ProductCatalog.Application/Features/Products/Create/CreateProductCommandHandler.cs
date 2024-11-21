@@ -17,11 +17,14 @@ namespace ModularMonolith.Products.Application.Features.Products.Create
     {
         private readonly IProductEventBus _eventBus;
         private readonly IProductModuleDbContext _dbContext;
+        private readonly IAttributeValidator _attributeValidator;
 
-        public CreateProductCommandHandler(IProductEventBus eventBus, IProductModuleDbContext dbContext)
+        public CreateProductCommandHandler(IProductEventBus eventBus, IProductModuleDbContext dbContext,
+            IAttributeValidator attributeValidator)
         {
             _eventBus = eventBus;
             _dbContext = dbContext;
+            _attributeValidator = attributeValidator;
         }
 
         public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
@@ -30,6 +33,10 @@ namespace ModularMonolith.Products.Application.Features.Products.Create
                                    .FindAsync(request.ManufacturerId, cancellationToken)
                                ?? throw new NotFoundException<Manufacturer>(request.ManufacturerId);
 
+            foreach (var attribute in request.Attributes)
+            {
+                await _attributeValidator.ValidateAndThrow(attribute.Id, attribute.Values, cancellationToken);
+            }
 
             var product = Product.New(request.Name, request.Description,
                 new Money(request.Price, CurrencySymbol.Usd), manufacturer,

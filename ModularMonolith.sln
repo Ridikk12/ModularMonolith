@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Domain", "M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{57A8D5A3-C7BE-48EF-BCA0-07491F7540C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.UI", "ModularMonolith.UI\ModularMonolith.UI.csproj", "{BBDF18D3-39B7-4ADA-B081-CD37461320CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{28C88100-F7E5-4953-92A8-9F3AB0349286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28C88100-F7E5-4953-92A8-9F3AB0349286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28C88100-F7E5-4953-92A8-9F3AB0349286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBDF18D3-39B7-4ADA-B081-CD37461320CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDF18D3-39B7-4ADA-B081-CD37461320CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDF18D3-39B7-4ADA-B081-CD37461320CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDF18D3-39B7-4ADA-B081-CD37461320CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
