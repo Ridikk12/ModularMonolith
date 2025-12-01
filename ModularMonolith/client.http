@@ -1,0 +1,38 @@
+﻿POST https://localhost:5001/users/login
+content-type: application/json
+
+{
+  "userName": "Ridikk2",
+  "password": "Password123@"
+}
+###
+
+POST https://localhost:5001/users/register
+content-type: application/json
+ 
+{
+  "userName": "Ridikk2",
+  "password": "Password123@",
+  "name": "Norbert",
+  "surname": "KK"
+}
+
+###
+POST https://localhost:5001/users/register
+Authorization: ''
+content-type: application/json
+
+{
+  "name": "NorbertProduct",
+  "description": "Testproduct",
+  "price": 12.33,
+  "attributes": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "selectedValues": [
+        "Green"
+      ]
+    }
+  ],
+  "manufacturerId": "f60fd9da-ec96-4286-69ee-08dd04bb0961""
+}

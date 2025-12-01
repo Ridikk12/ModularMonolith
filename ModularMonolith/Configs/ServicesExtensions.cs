@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ModularMonolith.History.Infrastructure.Startup;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
-using ModularMonolith.Products.Infrastructure.Startup;
+using ModularMonolith.ProductCatalog.Infrastructure.Startup;
 using ModularMonolith.User.Infrastructure.Startup;
 
 namespace ModularMonolith.Configs;

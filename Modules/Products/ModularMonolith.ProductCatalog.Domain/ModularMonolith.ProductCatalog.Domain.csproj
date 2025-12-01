@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>ModularMonolith.Products.Domain</RootNamespace>
+		<PackageId>ModularMonolith.ProductCatalog.Domain</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\ModularMonolith.Domain\ModularMonolith.Domain.csproj" />
+		<ProjectReference Include="..\..\..\ModularMonolith.Exceptions.Abstraction\ModularMonolith.Exceptions.Abstraction.csproj" />
+	</ItemGroup>
+
+</Project>

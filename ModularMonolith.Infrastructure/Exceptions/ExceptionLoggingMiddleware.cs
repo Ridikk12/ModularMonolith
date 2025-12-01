@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using ModularMonolith.Exceptions.Abstraction;
 using Serilog;
 using Serilog.Events;
 using System;
@@ -7,6 +6,8 @@ using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using FluentValidation;
+using ModularMonolith.Exceptions.Abstraction.Application;
+using ModularMonolith.Exceptions.Abstraction.Domain;
 
 namespace ModularMonolith.Infrastructure.Exceptions
 {
@@ -57,10 +58,10 @@ namespace ModularMonolith.Infrastructure.Exceptions
                     validationException.Message,
                     validationException.ValidationMessages),
                 ValidationException validationException => new ErrorResponse(validationException.Errors,
-                    validationException.Message, -1),
+                    validationException.Message, "api.exception.validation"),
                 AppException appException => new ErrorResponse(appException.ExceptionCode,
                     appException.Message),
-                _ => new ErrorResponse(-1, ex.Message),
+                _ => new ErrorResponse("system.unhandled", ex.Message),
             };
 
         private static int GetHttpStatusCode(Exception ex)

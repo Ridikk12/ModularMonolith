@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ModularMonolith.Contracts;
 using ModularMonolith.Infrastructure.Behaviours;
 using ModularMonolith.Infrastructure.Services;
-using ModularMonolith.Products.Application.Commands.AddProduct;
+using ModularMonolith.Products.Application.Features.Products.Create;
 
 namespace ModularMonolith.Configs;
 
@@ -14,7 +14,7 @@ public static class CoreServicesConfiguration
     {
         services.AddMediatR(typeof(ProductCratedIntegrationEvent));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-        services.AddValidatorsFromAssemblyContaining<AddProductValidator>();
+        services.AddValidatorsFromAssemblyContaining<CreateProductValidator>();
 
         services.AddInMemoryEventBus();
         services.AddHttpContextAccessor();

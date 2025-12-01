@@ -1,7 +1,6 @@
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,7 +9,7 @@ using ModularMonolith.History.Infrastructure.Startup;
 using ModularMonolith.Infrastructure.Exceptions;
 using ModularMonolith.Outbox;
 using ModularMonolith.Outbox.WorkerProcess;
-using ModularMonolith.Products.Infrastructure.Startup;
+using ModularMonolith.ProductCatalog.Infrastructure.Startup;
 using ModularMonolith.User.Infrastructure.Startup;
 
 namespace ModularMonolith
@@ -34,7 +33,8 @@ namespace ModularMonolith
 
             services.AddRouting(x => x.LowercaseUrls = true);
 
-            services.AddProductModule(Configuration)
+            services
+                .AddProductModule(Configuration)
                 .AddHistoryModule(Configuration)
                 .AddOutBoxModule(Configuration)
                 .AddUserModule(Configuration);

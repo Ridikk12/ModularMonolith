@@ -6,32 +6,32 @@ namespace ModularMonolith.Infrastructure.Exceptions
 {
     public class ErrorResponse
     {
-        public ErrorResponse(int statusCode, string message)
+        public ErrorResponse(string errorCode, string message)
         {
-            StatusCode = statusCode;
+            ErrorCode = errorCode;
             Message = message;
         }
 
-        public ErrorResponse(IEnumerable<ValidationFailure> failures, string errorMessage, int statusCode)
+        public ErrorResponse(IEnumerable<ValidationFailure> failures, string errorMessage, string errorCode)
         {
             Errors = failures
                 .GroupBy(e => e.PropertyName, e => e.ErrorMessage)
                 .ToDictionary(failureGroup => failureGroup.Key, failureGroup => failureGroup.ToArray());
             Message = errorMessage;
-            StatusCode = statusCode;
+            ErrorCode = errorCode;
         }
 
-        public ErrorResponse(int statusCode, string message, List<string> validationMessages)
+        public ErrorResponse(string errorCode, string message, List<string> validationMessages)
         {
-            StatusCode = statusCode;
+            ErrorCode = errorCode;
             Message = message;
 
             Errors = validationMessages
                 .Select((s, index) => new { s, index })
-                .ToDictionary(x => (x.index + 1).ToString(), x => new string[] { x.s });
+                .ToDictionary(x => (x.index + 1).ToString(), x => new[] { x.s });
         }
 
-        public int StatusCode { get; }
+        public string ErrorCode { get; }
         public string Message { get; }
 
         public IDictionary<string, string[]> Errors { get; }
